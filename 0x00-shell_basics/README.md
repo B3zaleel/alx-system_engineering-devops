@@ -10,7 +10,7 @@ This project contains _Shell_ related tasks.
 + [x] 3\. The long format<br/>_**3-listfiles**_ displays current directory contents in a long format.
 + [x] 4\. Hidden files<br/>_**4-listmorefiles**_ displays current directory contents, including hidden files (starting with `.`). Use the long format..
 + [x] 5\. I love numbers<br/>_**5-listfilesdigitonly**_ displays current directory contents.
-+ [ ] 6\. Welcome holberton<br/>_**6-firstdirectory**_ creates a directory named `holberton` in the `/tmp/` directory.
++ [x] 6\. Welcome holberton<br/>_**6-firstdirectory**_ creates a directory named `holberton` in the `/tmp/` directory.
 + [ ] 7\. Betty in Holberton<br/>_**7-movethatfile**_ moves the file `betty` from `/tmp/` to `/tmp/holberton`.
 + [ ] 8\. Bye bye Betty<br/>_**8-firstdelete**_ deletes the file `betty` in `/tmp/holberton`.
 + [ ] 9\. Bye bye Holberton<br/>_**9-firstdirdeletion**_ deletes the directory `holberton` that is in the `/tmp` directory.
