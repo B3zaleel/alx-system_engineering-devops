@@ -14,7 +14,7 @@ This project contains _Shell_ related tasks.
 + [x] 7\. Betty in Holberton<br/>_**7-movethatfile**_ moves the file `betty` from `/tmp/` to `/tmp/holberton`.
 + [x] 8\. Bye bye Betty<br/>_**8-firstdelete**_ deletes the file `betty` in `/tmp/holberton`.
 + [x] 9\. Bye bye Holberton<br/>_**9-firstdirdeletion**_ deletes the directory `holberton` that is in the `/tmp` directory.
-+ [ ] 10\. Back to the future<br/>_**10-back**_ changes the working directory to the previous one.
++ [x] 10\. Back to the future<br/>_**10-back**_ changes the working directory to the previous one.
 + [ ] 11\. Lists<br/>_**11-lists**_  lists all files (even ones with names beginning with a period character, which are normally hidden) in the current directory and the parent of the working directory and the `/boot` directory (in this order), in long format.
 + [ ] 12\. File type<br/>_**12-file_type**_ prints the type of the file named `iamafile` in the `/tmp` directory.
 + [ ] 13\. We are symbols, and inhabit symbols<br/>_**13-symbolic_link**_ creates a symbolic link to `/bin/ls`, named `__ls__` in the current working directory.
