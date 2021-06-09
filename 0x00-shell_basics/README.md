@@ -12,7 +12,7 @@ This project contains _Shell_ related tasks.
 + [x] 5\. I love numbers<br/>_**5-listfilesdigitonly**_ displays current directory contents.
 + [x] 6\. Welcome holberton<br/>_**6-firstdirectory**_ creates a directory named `holberton` in the `/tmp/` directory.
 + [x] 7\. Betty in Holberton<br/>_**7-movethatfile**_ moves the file `betty` from `/tmp/` to `/tmp/holberton`.
-+ [ ] 8\. Bye bye Betty<br/>_**8-firstdelete**_ deletes the file `betty` in `/tmp/holberton`.
++ [x] 8\. Bye bye Betty<br/>_**8-firstdelete**_ deletes the file `betty` in `/tmp/holberton`.
 + [ ] 9\. Bye bye Holberton<br/>_**9-firstdirdeletion**_ deletes the directory `holberton` that is in the `/tmp` directory.
 + [ ] 10\. Back to the future<br/>_**10-back**_ changes the working directory to the previous one.
 + [ ] 11\. Lists<br/>_**11-lists**_  lists all files (even ones with names beginning with a period character, which are normally hidden) in the current directory and the parent of the working directory and the `/boot` directory (in this order), in long format.
