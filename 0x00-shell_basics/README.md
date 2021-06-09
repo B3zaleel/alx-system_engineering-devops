@@ -7,7 +7,7 @@ This project contains _Shell_ related tasks.
 + [x] 0\. Where am I?<br/>_**0-current_working_directory**_ prints the absolute path name of the current working directory.
 + [x] 1\. What’s in there?<br/>_**1-listit**_ displays the contents list of your current directory.
 + [x] 2\. There is no place like home<br/>_**2-bring_me_home**_ changes the working directory to the user’s home directory.
-+ [ ] 3\. The long format<br/>_**3-listfiles**_ displays current directory contents in a long format.
++ [x] 3\. The long format<br/>_**3-listfiles**_ displays current directory contents in a long format.
 + [ ] 4\. Hidden files<br/>_**4-listmorefiles**_ displays current directory contents, including hidden files (starting with `.`). Use the long format..
 + [ ] 5\. I love numbers<br/>_**5-listfilesdigitonly**_ displays current directory contents.
 + [ ] 6\. Welcome holberton<br/>_**6-firstdirectory**_ creates a directory named `holberton` in the `/tmp/` directory.
