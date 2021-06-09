@@ -21,6 +21,6 @@ This project contains _Shell_ related tasks.
 + [x] 14\. Copy HTML files<br/>_**14-copy_html**_ copies all the HTML files from the current working directory to the parent of the working directory. It only copies files that did not exist in the parent of the working directory or were newer than the versions in the parent of the working directory.
 + [x] 15\. Let’s move<br/>_**100-lets_move**_ moves all files beginning with an uppercase letter to the directory `/tmp/u`.
 + [x] 16\. Clean Emacs<br/>_**101-clean_emacs**_ deletes all files in the current working directory that end with the character `~`.
-+ [ ] 17\. Tree<br/>_**102-tree**_ creates the directories `welcome/`, `welcome/to/` and `welcome/to/holberton` in the current directory.
++ [x] 17\. Tree<br/>_**102-tree**_ creates the directories `welcome/`, `welcome/to/` and `welcome/to/holberton` in the current directory.
 + [ ] 18\. Life is a series of commas, not periods<br/>_**103-commas**_  lists all the files and directories of the current directory, separated by commas (`,`).
 + [ ] 19\. File type: Holberton<br/>_**holberton.mgc**_ is a magic file that can be used with the command `file` to detect `Holberton` data files. `Holberton` data files always contain the string `HOLBERTON` at offset 0.
