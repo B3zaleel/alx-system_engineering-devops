@@ -17,5 +17,5 @@ This project contains _Shell_ related tasks.
 + [x] 10\. Back to the future<br/>_**10-back**_ changes the working directory to the previous one.
 + [x] 11\. Lists<br/>_**11-lists**_  lists all files (even ones with names beginning with a period character, which are normally hidden) in the current directory and the parent of the working directory and the `/boot` directory (in this order), in long format.
 + [x] 12\. File type<br/>_**12-file_type**_ prints the type of the file named `iamafile` in the `/tmp` directory.
-+ [ ] 13\. We are symbols, and inhabit symbols<br/>_**13-symbolic_link**_ creates a symbolic link to `/bin/ls`, named `__ls__` in the current working directory.
-+ [ ] 14\. Copy HTML files<br/>_**14-copy_html**_ copies all the HTML files from the current working directory to the parent of the working directory. It only copies files that did not exist in the parent of the working directory or were newer than the versions in the parent of the working directory.
++ [x] 13\. We are symbols, and inhabit symbols<br/>_**13-symbolic_link**_ creates a symbolic link to `/bin/ls`, named `__ls__` in the current working directory.
++ [x] 14\. Copy HTML files<br/>_**14-copy_html**_ copies all the HTML files from the current working directory to the parent of the working directory. It only copies files that did not exist in the parent of the working directory or were newer than the versions in the parent of the working directory.
