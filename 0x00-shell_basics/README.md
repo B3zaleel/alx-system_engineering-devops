@@ -23,4 +23,4 @@ This project contains _Shell_ related tasks.
 + [x] 16\. Clean Emacs<br/>_**101-clean_emacs**_ deletes all files in the current working directory that end with the character `~`.
 + [x] 17\. Tree<br/>_**102-tree**_ creates the directories `welcome/`, `welcome/to/` and `welcome/to/holberton` in the current directory.
 + [ ] 18\. Life is a series of commas, not periods<br/>_**103-commas**_  lists all the files and directories of the current directory, separated by commas (`,`).
-+ [ ] 19\. File type: Holberton<br/>_**holberton.mgc**_ is a magic file that can be used with the command `file` to detect `Holberton` data files. `Holberton` data files always contain the string `HOLBERTON` at offset 0.
++ [x] 19\. File type: Holberton<br/>_**holberton.mgc**_ is a magic file that can be used with the command `file` to detect `Holberton` data files. `Holberton` data files always contain the string `HOLBERTON` at offset 0.
