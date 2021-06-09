@@ -1,0 +1,2 @@
+#!/bin/bash
+ls --format=commas --indicator-style=slash -a # ls -m -p -a
