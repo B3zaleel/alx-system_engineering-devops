@@ -5,7 +5,7 @@ This project contains _Shell_ related tasks.
 ## Tasks Completed
 
 + [x] 0\. My name is Betty<br/>_**0-iam_betty**_ switches the current user to the user `betty`.
-+ [ ] 1\. Who am I<br/>_**1-who_am_i**_  prints the effective username of the current user.
++ [x] 1\. Who am I<br/>_**1-who_am_i**_  prints the effective username of the current user.
 + [ ] 2\. Groups<br/>_**2-groups**_ prints all the groups the current user is part of.
 + [ ] 3\. New owner<br/>_**3-new_owner**_ changes the owner of the file `hello` to the user `betty`.
 + [ ] 4\. Empty!<br/>_**4-empty**_ creates an empty file called `hello`.
