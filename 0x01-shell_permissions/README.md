@@ -18,3 +18,7 @@ This project contains _Shell_ related tasks.
 + [x] 11\. Directories<br/>_**11-directories_permissions**_ adds execute permission to all subdirectories of the current directory for the owner, the group owner and all other users. Regular files are left changed.
 + [x] 12\. More directories<br/>_**12-directory_permissions**_ creates a directory called `dir_holberton` with permissions 751 in the working directory.
 + [x] 13\. Change group<br/>_**13-change_group**_ changes the group owner to `holberton` for the file `hello` in the working directory.
++ [ ] 14\. Owner and group<br/>_**100-change_owner_and_group**_ changes the owner to `betty` and the group owner to `holberton` for all the files and directories in the working directory.
++ [ ] 15\. Symbolic links<br/>_**101-symbolic_link_permissions**_ changes the owner and the group owner of `_hello` to `betty` and `holberton` respectively. `_hello` is a symbolic link in the working directory.
++ [ ] 16\. If only<br/>_**102-if_only**_ changes the owner of the file `hello` in the working directory to `betty` only if it is owned by the user `guillaume`.
++ [ ] 17\. Star Wars<br/>_**103-Star_Wars**_ plays the StarWars IV episode in the terminal.
