@@ -7,7 +7,7 @@ This project contains _Shell_ related tasks.
 + [x] 0\. My name is Betty<br/>_**0-iam_betty**_ switches the current user to the user `betty`.
 + [x] 1\. Who am I<br/>_**1-who_am_i**_  prints the effective username of the current user.
 + [x] 2\. Groups<br/>_**2-groups**_ prints all the groups the current user is part of.
-+ [ ] 3\. New owner<br/>_**3-new_owner**_ changes the owner of the file `hello` to the user `betty`.
++ [x] 3\. New owner<br/>_**3-new_owner**_ changes the owner of the file `hello` to the user `betty`.
 + [ ] 4\. Empty!<br/>_**4-empty**_ creates an empty file called `hello`.
 + [ ] 5\. Execute<br/>_**5-execute**_ adds execute permission to the owner of the file `hello` in the working directory.
 + [ ] 6\. Multiple permissions<br/>_**6-multiple_permissions**_ adds execute permission to the owner and the group owner, and read permission to other users, to the file `hello` in the working directory.
