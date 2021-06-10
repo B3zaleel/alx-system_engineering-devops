@@ -9,7 +9,7 @@ This project contains _Shell_ related tasks.
 + [x] 2\. Groups<br/>_**2-groups**_ prints all the groups the current user is part of.
 + [x] 3\. New owner<br/>_**3-new_owner**_ changes the owner of the file `hello` to the user `betty`.
 + [x] 4\. Empty!<br/>_**4-empty**_ creates an empty file called `hello`.
-+ [ ] 5\. Execute<br/>_**5-execute**_ adds execute permission to the owner of the file `hello` in the working directory.
++ [x] 5\. Execute<br/>_**5-execute**_ adds execute permission to the owner of the file `hello` in the working directory.
 + [ ] 6\. Multiple permissions<br/>_**6-multiple_permissions**_ adds execute permission to the owner and the group owner, and read permission to other users, to the file `hello` in the working directory.
 + [ ] 7\. Everybody!<br/>_**7-everybody**_ adds execution permission to the owner, the group owner and the other users, to the file `hello` in the working directory.
 + [ ] 8\. James Bond<br/>_**8-James_Bond**_ sets the permission to the file `hello` in the working directory as follows:<br/>&bullet; Owner: no permission at all<br/>&bullet; Group: no permission at all<br/>&bullet; Other users: all the permissions
