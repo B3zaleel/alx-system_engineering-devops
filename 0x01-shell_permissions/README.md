@@ -12,7 +12,7 @@ This project contains _Shell_ related tasks.
 + [x] 5\. Execute<br/>_**5-execute**_ adds execute permission to the owner of the file `hello` in the working directory.
 + [x] 6\. Multiple permissions<br/>_**6-multiple_permissions**_ adds execute permission to the owner and the group owner, and read permission to other users, to the file `hello` in the working directory.
 + [x] 7\. Everybody!<br/>_**7-everybody**_ adds execution permission to the owner, the group owner and the other users, to the file `hello` in the working directory.
-+ [ ] 8\. James Bond<br/>_**8-James_Bond**_ sets the permission to the file `hello` in the working directory as follows:<br/>&bullet; Owner: no permission at all<br/>&bullet; Group: no permission at all<br/>&bullet; Other users: all the permissions
++ [x] 8\. James Bond<br/>_**8-James_Bond**_ sets the permission to the file `hello` in the working directory as follows:<br/>&bullet; Owner: no permission at all<br/>&bullet; Group: no permission at all<br/>&bullet; Other users: all the permissions
 + [ ] 9\. John Doe<br/>_**9-John_Doe**_ sets the mode of the file `hello` in the working directory to `-rwxr-x-wx`.
 + [ ] 10\. Look in the mirror<br/>_**10-mirror_permissions**_ sets the mode of the file `hello` the same as `olleh`’s mode. The two files will be in the working directory.
 + [ ] 11\. Directories<br/>_**11-directories_permissions**_ adds execute permission to all subdirectories of the current directory for the owner, the group owner and all other users. Regular files are left changed.
