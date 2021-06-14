@@ -26,4 +26,4 @@ This project contains _Shell_ related tasks.
 + [x] 19\. A to Z<br/>_**19-AZ**_ replaces all characters `A` and `c` from input to `Z` and `e` respectively.
 + [x] 20\. Without C, you would live in hiago<br/>_**20-hiago**_ removes all letters `c` and `C` from input.
 + [x] 21\. esreveR<br/>_**21-reverse**_ reverses its input.
-+ [ ] 22\. DJ Cut Killer<br/>_**22-users_and_homes**_ displays all users and their home directories, sorted by users. The script is based on the the `/etc/passwd` file.
++ [x] 22\. DJ Cut Killer<br/>_**22-users_and_homes**_ displays all users and their home directories, sorted by users. The script is based on the the `/etc/passwd` file.
