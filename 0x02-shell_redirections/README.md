@@ -19,7 +19,7 @@ This project contains _Shell_ related tasks.
 + [ ] 12\. What’s new<br/>_**12-newest_files**_ displays the 10 newest files in the current directory.<br/>Requirements:<br/>    &bullet;One file per line<br/>    &bullet;Sorted from the newest to the oldest
 + [x] 13\. Being unique is better than being perfect<br/>_**13-unique**_ takes a list of words as input and prints only words that appear exactly once.<br/>&bullet;Input format: One line, one word<br/>&bullet;Output format: One line, one word<br/>&bullet;Words should be sorted.
 + [x] 14\. It must be in that file<br/>_**14-findthatword**_ displays lines containing the pattern “root” from the file `/etc/passwd`.
-+ [ ] 15\. Count that word<br/>_**15-countthatword**_ displays the number of lines that contain the pattern “bin” in the file `/etc/passwd`.
++ [x] 15\. Count that word<br/>_**15-countthatword**_ displays the number of lines that contain the pattern “bin” in the file `/etc/passwd`.
 + [ ] 16\. What's next?<br/>_**16-whatsnext**_ displays lines containing the pattern “root” and 3 lines after them in the file `/etc/passwd`.
 + [ ] 17\. I hate bins<br/>_**17-hidethisword**_ displays all the lines in the file `/etc/passwd` that do not contain the pattern “bin”.
 + [ ] 18\. Letters only please<br/>_**18-letteronly**_ displays all lines of the file `/etc/ssh/sshd_config` starting with a letter including capital letters as well.
