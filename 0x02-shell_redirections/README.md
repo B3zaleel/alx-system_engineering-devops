@@ -8,7 +8,7 @@ This project contains _Shell_ related tasks.
 + [x] 1\. Confused smiley<br/>_**1-confused_smiley**_ displays a confused smiley `"(Ôo)'`.
 + [x] 2\. Let's display a file<br/>_**2-hellofile**_ displays the content of the `/etc/passwd` file.
 + [x] 3\. What about 2?<br/>_**3-twofiles**_ displays the content of `/etc/passwd` and `/etc/hosts`.
-+ [ ] 4\. Last lines of a file<br/>_**4-lastlines**_ displays the last 10 lines of `/etc/passwd`.
++ [x] 4\. Last lines of a file<br/>_**4-lastlines**_ displays the last 10 lines of `/etc/passwd`.
 + [ ] 5\. I'd prefer the first ones actually<br/>_**5-firstlines**_ displays the first 10 lines of `/etc/passwd`.
 + [ ] 6\. Line #2<br/>_**6-third_line**_ displays the third line of the file `iacta` which will be in the working directory without using `sed`.
 + [ ] 7\. It is a good file that cuts iron without making a noise<br/>_**7-file**_ creates a file named exactly `\*\\'"Holberton School"\'\\*$\?\*\*\*\*\*:)` containing the text `Holberton School` ending by a new line.
