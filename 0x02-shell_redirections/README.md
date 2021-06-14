@@ -22,7 +22,7 @@ This project contains _Shell_ related tasks.
 + [x] 15\. Count that word<br/>_**15-countthatword**_ displays the number of lines that contain the pattern “bin” in the file `/etc/passwd`.
 + [x] 16\. What's next?<br/>_**16-whatsnext**_ displays lines containing the pattern “root” and 3 lines after them in the file `/etc/passwd`.
 + [ ] 17\. I hate bins<br/>_**17-hidethisword**_ displays all the lines in the file `/etc/passwd` that do not contain the pattern “bin”.
-+ [ ] 18\. Letters only please<br/>_**18-letteronly**_ displays all lines of the file `/etc/ssh/sshd_config` starting with a letter including capital letters as well.
++ [x] 18\. Letters only please<br/>_**18-letteronly**_ displays all lines of the file `/etc/ssh/sshd_config` starting with a letter including capital letters as well.
 + [ ] 19\. A to Z<br/>_**19-AZ**_ replaces all characters `A` and `c` from input to `Z` and `e` respectively.
 + [ ] 20\. Without C, you would live in hiago<br/>_**20-hiago**_ removes all letters `c` and `C` from input.
 + [ ] 21\. esreveR<br/>_**21-reverse**_ reverses its input.
