@@ -12,7 +12,7 @@ This project contains _Shell_ related tasks.
 + [x] 5\. I'd prefer the first ones actually<br/>_**5-firstlines**_ displays the first 10 lines of `/etc/passwd`.
 + [x] 6\. Line #2<br/>_**6-third_line**_ displays the third line of the file `iacta` which will be in the working directory without using `sed`.
 + [ ] 7\. It is a good file that cuts iron without making a noise<br/>_**7-file**_ creates a file named exactly `\*\\'"Holberton School"\'\\*$\?\*\*\*\*\*:)` containing the text `Holberton School` ending by a new line.
-+ [ ] 8\. Save current state of directory<br/>_**8-cwd_state**_ writes into the file `ls_cwd_content` the result of the command `ls -la`. If the file `ls_cwd_content` already exists, it is overwritten. If the file `ls_cwd_content` does not exist, it is created.
++ [x] 8\. Save current state of directory<br/>_**8-cwd_state**_ writes into the file `ls_cwd_content` the result of the command `ls -la`. If the file `ls_cwd_content` already exists, it is overwritten. If the file `ls_cwd_content` does not exist, it is created.
 + [ ] 9\. Duplicate last line<br/>_**9-duplicate_last_line**_ duplicates the last line of the file `iacta` which will be in the working directory.
 + [ ] 10\. No more javascript<br/>_**10-no_more_js**_ deletes all the regular files (not the directories) with a `.js` extension that are present in the current directory and all its subfolders.
 + [ ] 11\.  Don't just count your directories, make your directories count<br/>_**11-directories**_ counts the number of directories and sub-directories in the current directory.<br/>&bullet;The current and parent directories should not be taken into account<br/>&bullet;Hidden directories should be counted.
