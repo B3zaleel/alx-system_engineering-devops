@@ -23,7 +23,7 @@ This project contains _Shell_ related tasks.
 + [x] 16\. What's next?<br/>_**16-whatsnext**_ displays lines containing the pattern “root” and 3 lines after them in the file `/etc/passwd`.
 + [x] 17\. I hate bins<br/>_**17-hidethisword**_ displays all the lines in the file `/etc/passwd` that do not contain the pattern “bin”.
 + [x] 18\. Letters only please<br/>_**18-letteronly**_ displays all lines of the file `/etc/ssh/sshd_config` starting with a letter including capital letters as well.
-+ [ ] 19\. A to Z<br/>_**19-AZ**_ replaces all characters `A` and `c` from input to `Z` and `e` respectively.
++ [x] 19\. A to Z<br/>_**19-AZ**_ replaces all characters `A` and `c` from input to `Z` and `e` respectively.
 + [ ] 20\. Without C, you would live in hiago<br/>_**20-hiago**_ removes all letters `c` and `C` from input.
 + [ ] 21\. esreveR<br/>_**21-reverse**_ reverses its input.
 + [ ] 22\. DJ Cut Killer<br/>_**22-users_and_homes**_ displays all users and their home directories, sorted by users. The script is based on the the `/etc/passwd` file.
