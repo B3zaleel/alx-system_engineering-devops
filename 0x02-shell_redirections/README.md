@@ -4,7 +4,7 @@ This project contains _Shell_ related tasks.
 
 ## Tasks Completed
 
-+ [ ] 0\. Hello World<br/>_**0-hello_world**_ prints “Hello, World”, followed by a new line to the standard output.
++ [x] 0\. Hello World<br/>_**0-hello_world**_ prints “Hello, World”, followed by a new line to the standard output.
 + [ ] 1\. Confused smiley<br/>_**1-confused_smiley**_ displays a confused smiley `"(Ôo)'`.
 + [ ] 2\. Let's display a file<br/>_**2-hellofile**_ displays the content of the `/etc/passwd` file.
 + [ ] 3\. What about 2?<br/>_**3-twofiles**_ displays the content of `/etc/passwd` and `/etc/hosts`.
