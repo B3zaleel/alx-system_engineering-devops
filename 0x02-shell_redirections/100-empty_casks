@@ -1,2 +1,2 @@
 #!/bin/bash
-echo -e "$(find . -empty | rev | cut -d '/' -f 1 | rev)\n"
+echo "$(find . -empty | rev | cut -d '/' -f 1 | rev)"
