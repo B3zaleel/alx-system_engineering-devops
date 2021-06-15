@@ -1,0 +1,2 @@
+#!/bin/bash
+printf "%o" "$(echo $((5#$(echo $WATER | tr water 01234) + 5#"$(echo -ne $STIR | tr stir. 01234)")))" | tr 01234567 behlnort

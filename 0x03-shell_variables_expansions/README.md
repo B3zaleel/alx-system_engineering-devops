@@ -21,4 +21,4 @@ This project contains _Shell_ related tasks.
 + [x] 14\. Decimal to Hexadecimal<br/>_**100-decimal_to_hexadecimal**_ converts a number from base 10 to base 16. The number in base 10 is stored in the environment variable `DECIMAL`
 + [ ] 15\. Everyone is a proponent of strong encryption<br/>_**101-rot13**_ encodes and decodes text using the rot13 encryption assuming the text is ASCII encoded.
 + [ ] 16\. The eggs of the brood need to be an odd number<br/>_**102-odd**_ prints every ~~other~~ odd line from the input, starting with the first line.
-+ [ ] 17\. I'm an instant star. Just add water and stir.<br/>_**103-water_and_stir**_ adds the two numbers stored in the environment variables `WATER` and `STIR` and prints the result. `WATER` is in base `water`, `STIR` is in base `stir`, and the result is in base `behlnort`.
++ [x] 17\. I'm an instant star. Just add water and stir.<br/>_**103-water_and_stir**_ adds the two numbers stored in the environment variables `WATER` and `STIR` and prints the result. `WATER` is in base `water`, `STIR` is in base `stir.`, and the result is in base `behlnort`.
