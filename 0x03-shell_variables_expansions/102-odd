@@ -1,0 +1,2 @@
+#!/bin/bash
+grep -n "" | grep -v "^[0-9]*[02468]:" | cut -d ':' -f 2-
