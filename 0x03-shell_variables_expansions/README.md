@@ -19,6 +19,6 @@ This project contains _Shell_ related tasks.
 + [x] 12\. Combination<br/>_**12-combinations**_ prints all possible combinations of two letters, except `oo`.<br/>    &bullet;Letters are lower cases, from `a` to `z`<br/>    &bullet;One combination per line<br/>    &bullet;The output is alpha ordered, starting with `aa`<br/>    &bullet;Does not print `oo`<br/>    &bullet;The script file contains maximum 64 characters.
 + [x] 13\. Floats<br/>_**13-print_float**_ prints a number, which is stored in the environment variable `NUM`, with two decimal places, followed by a new line.
 + [x] 14\. Decimal to Hexadecimal<br/>_**100-decimal_to_hexadecimal**_ converts a number from base 10 to base 16. The number in base 10 is stored in the environment variable `DECIMAL`
-+ [ ] 15\. Everyone is a proponent of strong encryption<br/>_**101-rot13**_ encodes and decodes text using the rot13 encryption assuming the text is ASCII encoded.
++ [x] 15\. Everyone is a proponent of strong encryption<br/>_**101-rot13**_ encodes and decodes text using the rot13 encryption assuming the text is ASCII encoded.
 + [ ] 16\. The eggs of the brood need to be an odd number<br/>_**102-odd**_ prints every ~~other~~ odd line from the input, starting with the first line.
 + [x] 17\. I'm an instant star. Just add water and stir.<br/>_**103-water_and_stir**_ adds the two numbers stored in the environment variables `WATER` and `STIR` and prints the result. `WATER` is in base `water`, `STIR` is in base `stir.`, and the result is in base `behlnort`.
