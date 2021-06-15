@@ -5,7 +5,7 @@ This project contains _Shell_ related tasks.
 ## Tasks Completed
 
 + [x] 0\. &lt;0&gt;<br/>_**0-alias**_ creates an alias with the Name: `ls` and Value: `rm *`.
-+ [ ] 1\. Hello you<br/>_**1-hello_you**_ prints `hello user`, where user is the current Linux user.
++ [x] 1\. Hello you<br/>_**1-hello_you**_ prints `hello user`, where user is the current Linux user.
 + [ ] 2\. The path to success is to take massive, determined action<br/>_**2-path**_ adds `/action` to the `PATH`. `/action` should be the last directory the shell looks into when looking for a program.
 + [ ] 3\. If the path be beautiful, let us not ask where it leads<br/>_**3-paths**_ counts the number of directories in the `PATH`.
 + [ ] 4\. Global variables<br/>_**4-global_variables**_ lists environment variables.
