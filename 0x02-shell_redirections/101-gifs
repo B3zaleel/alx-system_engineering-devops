@@ -1,0 +1,2 @@
+#!/bin/bash
+echo -e "$(find . -type f -name "*.gif" | rev | cut -d '.' -f 2- | cut -d '/' -f 1 | rev | sort -fV)\n"
