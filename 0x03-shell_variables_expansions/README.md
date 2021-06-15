@@ -11,7 +11,7 @@ This project contains _Shell_ related tasks.
 + [x] 4\. Global variables<br/>_**4-global_variables**_ lists environment variables.
 + [ ] 5\. Local variables<br/>_**5-local_variables**_ lists all local variables and environment variables, and functions.
 + [x] 6\. Local variable<br/>_**6-create_local_variable**_ creates a new local variable with the name `BETTY` and value `Holberton`.
-+ [ ] 7\. Global variable<br/>_**7-create_global_variable**_ creates a new global variable with the name `HOLBERTON` and value `Betty`.
++ [x] 7\. Global variable<br/>_**7-create_global_variable**_ creates a new global variable with the name `HOLBERTON` and value `Betty`.
 + [x] 8\. Every addition to true knowledge is an addition to human power<br/>_**8-true_knowledge**_ prints the result of the addition of 128 with the value stored in the environment variable `TRUEKNOWLEDGE`, followed by a new line.
 + [x] 9\. Divide and rule<br/>_**9-divide_and_rule**_ prints the result of `POWER` divided by `DIVIDE`, followed by a new line. `POWER` and `DIVIDE` are environment variables.
 + [x] 10\. Love is anterior to life, posterior to death, initial of creation, and the exponent of breath<br/>_**10-love_exponent_breath**_ displays the result of `BREATH` to the power `LOVE` followed by a new line. `BREATH` and `LOVE` are environment variables.
