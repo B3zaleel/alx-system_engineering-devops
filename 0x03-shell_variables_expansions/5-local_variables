@@ -1,0 +1,2 @@
+#!/bin/bash
+declare -p | cut -d \  -f 3-
