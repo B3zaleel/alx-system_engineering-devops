@@ -3,17 +3,14 @@
 file_name="school"
 if test -a $file_name; then
   echo "$file_name file exists"
+  if test -s $file_name; then
+    echo "$file_name file is not empty"
+    if test -f $file_name; then
+      echo "$file_name is a regular file"
+    fi
+  else
+    echo "$file_name file is empty"
+  fi
 else
   echo "$file_name file does not exist"
-  exit
-fi
-
-if test -s $file_name; then
-  echo "$file_name is not empty"
-else
-  echo "$file_name is empty"
-fi
-
-if test -f $file_name; then
-  echo "$file_name is a regular file"
 fi
