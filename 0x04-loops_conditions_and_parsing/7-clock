@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
-# Prints the hours from 0 to 12 exclusive and minutes from
-# 1 to 60 exclusive
+# Prints the hours from 0 to 12 inclusive and minutes from
+# 1 to 59 inclusive
 hour=0
-while [[ $hour -lt 12 ]]; do
+while [[ $hour -lt 13 ]]; do
   minute=1
   echo "Hour: $hour"
   while [[ $minute -lt 60 ]]; do
