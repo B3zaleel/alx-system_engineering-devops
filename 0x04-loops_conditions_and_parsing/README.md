@@ -4,7 +4,7 @@ This project contains __Shell__ tasks for learning about loops, conditions and p
 
 ## Tasks To Complete
 
-+ [ ] 0\. Create a SSH RSA key pair <br/>_**[0-RSA_public_key.pub](0-RSA_public_key.pub)**_ contains an RSA public key for connecting to my servers using SSH.
++ [x] 0\. Create a SSH RSA key pair <br/>_**[0-RSA_public_key.pub](0-RSA_public_key.pub)**_ contains an RSA public key for connecting to my servers using SSH.
 + [ ] 1\. For Best School loop <br/>_**[1-for_best_school](1-for_best_school)**_ contains a Bash script that displays `Best School` 10 times using the `for` loop.
 + [ ] 2\. While Best School loop <br/>_**[2-while_best_school](2-while_best_school)**_ contains a Bash script that displays `Best School` 10 times using the `while` loop.
 + [ ] 3\. Until Best School loop <br/>_**[3-until_best_school](3-until_best_school)**_ contains a Bash script that displays `Best School` 10 times using the `until` loop.
