@@ -2,17 +2,6 @@
 # Prints the number of occurrences of the same IP address and
 # HTTP status code of an Apache HTTP request log
 file_name="apache-access.log"
-# aggregator_file="./103-aggr.awk"
-aggregator_fxn='# computes a frequency list of the lines passed to awk\n'
-aggregator_fxn=$aggregator_fxn"# executed for each line in the file stdin\n"
-aggregator_fxn=$aggregator_fxn"{\n"
-aggregator_fxn=$aggregator_fxn"  freq[\$1 \" \" \$9]++\n"
-aggregator_fxn=$aggregator_fxn"}\n"
-aggregator_fxn=$aggregator_fxn"# executed after the last line in stdin\n"
-aggregator_fxn=$aggregator_fxn"END {\n"
-aggregator_fxn=$aggregator_fxn"  for (word in freq)\n"
-aggregator_fxn=$aggregator_fxn'    printf "    %d %s\\n", freq[word], word\n'
-aggregator_fxn=$aggregator_fxn"}\n"
 if test -f $file_name; then
-  echo -en "$aggregator_fxn" | awk -f - $file_name | sort -gr
+  awk '{print $1,$9}' $file_name | sort | uniq -c | sort -gr
 fi
