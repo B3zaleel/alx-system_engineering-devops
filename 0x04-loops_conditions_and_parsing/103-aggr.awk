@@ -8,5 +8,5 @@
 # executed after the last line in stdin
 END {
   for (word in freq)
-    printf "%d %s\n", freq[word], word
+    printf "    %d %s\n", freq[word], word
 }
