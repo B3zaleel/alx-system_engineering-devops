@@ -5,15 +5,15 @@ files=()
 readarray -t files < <(find . -regex "./[^.].*" | sort)
 for ((i = 0; i < "${#files[@]}"; i++)) do
   j=0
-  # file_printed="0"
+  file_printed="0"
   for ((j = 0; j < "${#files[i]}"; j++)) do
     if [[ "${files[i]:j:1}" == "-" ]]; then
       echo "${files[i]:j+1}"
-      # file_printed="1"
+      file_printed="1"
       break
     fi
   done
-  # if [[ $file_printed == "0" ]]; then
-  #   echo "${files[i]:2}"
-  # fi
+  if [[ $file_printed == "0" ]]; then
+    echo "${files[i]:2}"
+  fi
 done
