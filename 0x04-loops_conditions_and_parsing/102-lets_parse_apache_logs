@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# Prints the IP address and HTTP status code of
+# an Apache HTTP request log
+file_name="./apache-access.log"
+awk '{print $1,$9}' $file_name

@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+# Prints the name of the contents of the current directory
+# after the first "-" character
+files=()
+readarray -t files < <(find . -name "*" | sort)
+for ((i = 1; i < "${#files[@]}"; i++)) do
+  j=0
+  for ((j = 0; j < "${#files[i]}"; j++)) do
+    if [[ "${files[i]:j:1}" == "-" ]]; then
+      echo "${files[i]:j+1}"
+      break
+    fi
+  done
+done
