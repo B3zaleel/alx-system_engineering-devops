@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Prints the PID of this process
-clean_up_action='test -f /var/run/myscript.pid && rm /var/run/myscript.pid; exit 0'
+clean_up_action='test -f /var/run/myscript.pid && rm /var/run/myscript.pid; exit'
 
 if test -e "/var/run/myscript.pid"; then
   rm -rf "/var/run/myscript.pid"
