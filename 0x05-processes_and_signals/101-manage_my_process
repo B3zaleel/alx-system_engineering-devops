@@ -20,7 +20,6 @@ if [[ $# -eq 1 ]]; then
   elif [[ "$1" == "stop" ]]; then
     if test -f "$pid_file"; then
       kill -s SIGKILL "$(cat $pid_file)"
-      pkill -fx --signal SIGKILL ".*manage_my_process.*"
       rm -rf "$pid_file"
     fi
     echo "$prog_name stopped"
@@ -28,7 +27,6 @@ if [[ $# -eq 1 ]]; then
     # stop program
     if test -f "$pid_file"; then
       kill -s SIGKILL "$(cat $pid_file)"
-      pkill -fx --signal SIGKILL ".*manage_my_process.*"
       rm -rf "$pid_file"
     fi
     # start program
