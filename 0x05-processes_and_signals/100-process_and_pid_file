@@ -2,6 +2,9 @@
 # Prints the PID of this process
 clean_up_action='test -f /var/run/myscript.pid && rm /var/run/myscript.pid; exit 0'
 
+if test -d "/var/run/myscript.pid"; then
+  rm -rf "/var/run/myscript.pid"
+fi
 echo $$ > "/var/run/myscript.pid"
 trap 'echo "I hate the kill command"; '"$clean_up_action" SIGTERM
 trap 'echo "Y U no love me?!"' SIGINT
