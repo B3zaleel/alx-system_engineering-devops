@@ -1,53 +1,29 @@
 #!/usr/bin/env bash
 # Manages a daemon
-prog_path="./manage_my_process"
-prog_name="$(echo $prog_path | grep -oE '[^/]+$')"
-pid_file='/var/run/my_process.pid'
-
 if [[ "$#" == "1" ]]; then
   if [[ "$1" == "start" ]]; then
-    if test -e /tmp/my_process; then
-      rm -rf /tmp/my_process
-    fi
-    if test -e "$prog_path"; then
-      if test -e "$pid_file"; then
-        rm -rf "$pid_file"
-      fi
-      "$prog_path" &
-      echo "$!" >"$pid_file"
-    fi
-    echo "$prog_name started"
+    ./manage_my_process &
+    echo "$!" > /var/run/my_process.pid
+    echo "manage_my_process started"
   elif [[ "$1" == "stop" ]]; then
-    if test -f "$pid_file"; then
-      kill -s SIGKILL "$(cat $pid_file)"
-      readarray -t prog_pid < <(pgrep -la -x "bash.*" | grep '4-to_infinity_and_beyond' | cut -d ' ' -f 1)
-      for ((i = 0; i < "${#prog_pid[@]}"; i++)) do
-        kill "${prog_pid[i]}"
-      done
-      rm -rf "$pid_file"
+    if test -f "/var/run/my_process.pid"; then
+      kill "$(cat /var/run/my_process.pid)"
+      rm /var/run/my_process.pid
     fi
-    echo "$prog_name stopped"
+    echo "manage_my_process stopped"
   elif [[ "$1" == "restart" ]]; then
     # stop program
-    if test -f "$pid_file"; then
-      kill "$(cat $pid_file)"
-      rm -rf "$pid_file"
+    if test -f "/var/run/my_process.pid"; then
+      kill "$(cat /var/run/my_process.pid)"
+      rm /var/run/my_process.pid
     fi
     # start program
-    if test -e /tmp/my_process; then
-      rm -rf /tmp/my_process
-    fi
-    if test -e "$prog_path"; then
-      if test -e "$pid_file"; then
-        rm -rf "$pid_file"
-      fi
-      "$prog_path" &
-      echo "$!" >"$pid_file"
-    fi
-    echo "$prog_name restarted"
+    ./manage_my_process &
+    echo "$!" > /var/run/my_process.pid
+    echo "manage_my_process restarted"
   else
-    echo "Usage: $prog_name {start|stop|restart}"
+    echo "Usage: manage_my_process {start|stop|restart}"
   fi
 else
-  echo "Usage: $prog_name {start|stop|restart}"
+  echo "Usage: manage_my_process {start|stop|restart}"
 fi
