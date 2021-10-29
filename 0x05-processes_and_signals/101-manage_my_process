@@ -4,7 +4,7 @@ prog_path="./manage_my_process"
 prog_name="$(echo $prog_path | grep -oE '[^/]+$')"
 pid_file='/var/run/my_process.pid'
 
-if [[ $# -eq 1 ]]; then
+if [[ "$#" == "1" ]]; then
   if [[ "$1" == "start" ]]; then
     if test -e /tmp/my_process; then
       rm -rf /tmp/my_process
@@ -19,14 +19,22 @@ if [[ $# -eq 1 ]]; then
     echo "$prog_name started"
   elif [[ "$1" == "stop" ]]; then
     if test -f "$pid_file"; then
-      kill -s SIGKILL "$(cat $pid_file)"
+      prog_pid=()
+      readarray -t prog_pid < <(pgrep -la -x "bash.*" | grep 'manage_my_process' | cut -d ' ' -f 1)
+      for ((i = 0; i < "${#prog_pid[@]}"; i++)) do
+        kill -s SIGKILL "${prog_pid[i]}"
+      done
       rm -rf "$pid_file"
     fi
     echo "$prog_name stopped"
   elif [[ "$1" == "restart" ]]; then
     # stop program
     if test -f "$pid_file"; then
-      kill -s SIGKILL "$(cat $pid_file)"
+      prog_pid=()
+      readarray -t prog_pid < <(pgrep -la -x "bash.*" | grep 'manage_my_process' | cut -d ' ' -f 1)
+      for ((i = 0; i < "${#prog_pid[@]}"; i++)) do
+        kill -s SIGKILL "${prog_pid[i]}"
+      done
       rm -rf "$pid_file"
     fi
     # start program
