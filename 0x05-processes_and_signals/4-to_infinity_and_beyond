@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Prints the PID of this process
+# Displays a string indefinitely
 while [[ 1 -eq 1 ]]; do
   echo "To infinity and beyond"
   sleep 2

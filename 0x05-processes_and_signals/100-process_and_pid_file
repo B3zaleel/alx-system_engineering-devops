@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Prints the PID of this process
+# Prints a string indefinitely and catches some signals
 clean_up_action='test -f /var/run/myscript.pid && rm /var/run/myscript.pid; kill -s SIGKILL '"$$"
 
 echo $$ > "/var/run/myscript.pid"

@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Prints the PID of this process
+# Writes a string to a file indefinitely
 while [[ 1 -eq 1 ]]; do
   echo "I am alive!" >> /tmp/my_process
   sleep 2

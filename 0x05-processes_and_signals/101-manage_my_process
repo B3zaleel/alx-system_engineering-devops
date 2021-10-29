@@ -1,11 +1,14 @@
 #!/usr/bin/env bash
-# Prints the PID of this process
+# Manages a daemon
 prog_path="./manage_my_process"
 prog_name="$(echo $prog_path | grep -oE '[^/]+$')"
 pid_file='/var/run/my_process.pid'
 
 if [[ $# -eq 1 ]]; then
   if [[ "$1" == "start" ]]; then
+    if test -e /tmp/my_process; then
+      rm -rf /tmp/my_process
+    fi
     if test -e "$prog_path"; then
       if test -e "$pid_file"; then
         rm -rf "$pid_file"
@@ -27,6 +30,9 @@ if [[ $# -eq 1 ]]; then
       rm -rf "$pid_file"
     fi
     # start program
+    if test -e /tmp/my_process; then
+      rm -rf /tmp/my_process
+    fi
     if test -e "$prog_path"; then
       if test -e "$pid_file"; then
         rm -rf "$pid_file"
