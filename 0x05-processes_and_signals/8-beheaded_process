@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# Prints the PID of this process
+# shellcheck disable=SC2009
+prog_pid=()
+readarray -t prog_pid < <(ps u | grep -E "bash.+7-highlander" | awk '{print $2,$11}' | grep bash | grep -oE '[0-9]+')
+for ((i = 0; i < "${#prog_pid[@]}"; i++)) do
+  kill -s SIGKILL "${prog_pid[i]}"
+done

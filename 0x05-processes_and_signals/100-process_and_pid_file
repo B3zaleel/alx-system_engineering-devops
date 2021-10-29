@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+# Prints the PID of this process
+clean_up_action='[ test -f /var/run/my.pid ] && [ rm /var/run/my.pid ]; exit'
+
+echo $$ > "/var/run/myscript.pid"
+trap 'echo "I hate the kill command"'"$clean_up_action" SIGTERM
+trap 'echo "Y U no love me?!"' SIGINT
+trap ''"$clean_up_action" SIGQUIT
+
+while [[ 1 -eq 1 ]]; do
+  echo "To infinity and beyond"
+  sleep 2
+done
