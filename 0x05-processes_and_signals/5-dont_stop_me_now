@@ -2,7 +2,8 @@
 # Prints the PID of this process
 # shellcheck disable=SC2009
 prog_pid=()
-readarray -t prog_pid < <(ps u | grep -E "bash.+4-to_infinity_and_beyond" | awk '{print $2,$11}' | grep bash | grep -oE '[0-9]+')
+# readarray -t prog_pid < <(ps u | grep -E "bash.+4-to_infinity_and_beyond" | awk '{print $2,$11}' | grep bash | grep -oE '[0-9]+')
+readarray -t prog_pid < <(pgrep -la -x "bash.*" | grep '4-to_infinity_and_beyond' | cut -d ' ' -f 1)
 for ((i = 0; i < "${#prog_pid[@]}"; i++)) do
   kill -s SIGTERM "${prog_pid[i]}"
 done
