@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 # Prints the PID of this process
 prog_path="./manage_my_process"
-prog_name=$(echo $prog_path | grep -oE "[^/]+$")
+prog_name="$(echo $prog_path | grep -oE '[^/]+$')"
 pid_file='/var/run/my_process.pid'
 
 function start_program() {
   "$prog_path" &
-  echo $! > "$pid_file"
+  echo "$!" >"$pid_file"
 }
 
 function stop_program() {
