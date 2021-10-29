@@ -1,3 +1,5 @@
 #!/usr/bin/env bash
 # Prints the PID of this process
-pgrep -lax "[^\\s]*bash[^\\s]*"
+# shellcheck disable=SC2009
+# pgrep -lax "[^\\s]*bash[^\\s]*"
+ps -a --format pid,cmd | cut -d ' ' -f 1-3 | grep bash
