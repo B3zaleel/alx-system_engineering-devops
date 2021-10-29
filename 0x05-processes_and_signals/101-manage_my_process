@@ -1,18 +1,14 @@
 #!/usr/bin/env bash
 # Prints the PID of this process
-prog_path="./manage_my_process"
-prog_name="$(echo $prog_path | grep -oE '[^/]+$')"
-pid_file='/var/run/my_process.pid'
-
 function start_program() {
-  "$prog_path" &
-  echo "$!" >"$pid_file"
+  ./manage_my_process &
+  echo "$!" >/var/run/my_process.pid
 }
 
 function stop_program() {
-  if test -f "$pid_file"; then
-    kill -s SIGKILL "$(cat $pid_file)"
-    rm "$pid_file"
+  if test -f /var/run/my_process.pid; then
+    kill -s SIGKILL "$(cat /var/run/my_process.pid)"
+    rm /var/run/my_process.pid
   fi
 }
 
@@ -28,13 +24,13 @@ function help_program() {
 if [[ $# -eq 1 ]]; then
   if [[ "$1" == "start" ]]; then
     start_program
-    echo "$prog_name started"
+    echo "manage_my_process started"
   elif [[ "$1" == "stop" ]]; then
     stop_program
-    echo "$prog_name stopped"
+    echo "manage_my_process stopped"
   elif [[ "$1" == "restart" ]]; then
     restart_program
-    echo "$prog_name restarted"
+    echo "manage_my_process restarted"
   else
     help_program
   fi
