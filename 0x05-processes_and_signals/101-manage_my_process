@@ -11,7 +11,7 @@ function start_program() {
 
 function stop_program() {
   if test -f "$pid_file"; then
-    kill -s SIGKILL "$(cat $pid_file)" && rm "$pid_file"
+    kill -s SIGSTOP "$(cat $pid_file)" && rm "$pid_file"
   fi
 }
 
