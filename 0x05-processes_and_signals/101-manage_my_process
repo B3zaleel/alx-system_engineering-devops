@@ -4,53 +4,40 @@ prog_path="./manage_my_process"
 prog_name="$(echo $prog_path | grep -oE '[^/]+$')"
 pid_file='/var/run/my_process.pid'
 
-# starts the daemon
-function start_program() {
-  "$prog_path" &
-  if test -e "$pid_file"; then
-    rm -rf "$pid_file"
-  fi
-  echo "$!" >"$pid_file"
-}
-
-# stops the daemon
-function stop_program() {
-  if test -f "$pid_file"; then
-    kill -s SIGKILL "$(cat $pid_file)"
-    rm -rf "$pid_file"
-  fi
-}
-
-# restarts the daemon
-function restart_program() {
-  stop_program
-  start_program
-}
-
-# help for managing the daemon
-function help_program() {
-  echo "Usage: $prog_name {start|stop|restart}"
-}
-
 if [[ $# -eq 1 ]]; then
   if [[ "$1" == "start" ]]; then
     if test -e "$prog_path"; then
-      start_program
+      if test -e "$pid_file"; then
+        rm -rf "$pid_file"
+      fi
+      "$prog_path" &
+      echo "$!" >"$pid_file"
     fi
     echo "$prog_name started"
   elif [[ "$1" == "stop" ]]; then
-    if test -e "$prog_path"; then
-      stop_program
+    if test -f "$pid_file"; then
+      kill -s SIGKILL "$(cat $pid_file)"
+      rm -rf "$pid_file"
     fi
     echo "$prog_name stopped"
   elif [[ "$1" == "restart" ]]; then
+    # stop program
+    if test -f "$pid_file"; then
+      kill -s SIGKILL "$(cat $pid_file)"
+      rm -rf "$pid_file"
+    fi
+    # start program
     if test -e "$prog_path"; then
-      restart_program
+      if test -e "$pid_file"; then
+        rm -rf "$pid_file"
+      fi
+      "$prog_path" &
+      echo "$!" >"$pid_file"
     fi
     echo "$prog_name restarted"
   else
-    help_program
+    echo "Usage: $prog_name {start|stop|restart}"
   fi
 else
-  help_program
+  echo "Usage: $prog_name {start|stop|restart}"
 fi
