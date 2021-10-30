@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Prints a string indefinitely and catches some signals
-clean_up_action='rm /var/run/myscript.pid; exit'
+clean_up_action='rm /var/run/myscript.pid; exit $?'
 
 echo $$ > "/var/run/myscript.pid"
 trap 'echo "I hate the kill command"; '"$clean_up_action" SIGTERM
