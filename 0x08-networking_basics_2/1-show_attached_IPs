@@ -1,3 +1,6 @@
 #!/usr/bin/env bash
 # Displays all active IPV4 IPs
-ip -4 -br address | grep -oE '[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+'
+# Method 1
+# ip -4 -br address | grep -oE '([0-9]+\.?){4}'
+# Method 2
+ifconfig | grep -oE 'inet\s([0-9]+\.?){4}' | grep -oE '([0-9]+\.?){4}'
