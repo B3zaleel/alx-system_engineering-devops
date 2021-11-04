@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# Remaps IPV4 addresses to hostnames
+hosts_tmp=~/hosts.new
+cp /etc/hosts "$hosts_tmp"
+sed -i -E 's/([0-9]+\.[0-9]+\.[0-9]+\.[0-9]+\slocalhost)/# \1/g' "$hosts_tmp"
+echo -e "\n# host modifications\n127.0.0.2\tlocalhost\n8.8.8.8\tfacebook.com" >> "$hosts_tmp"
+cp -f "$hosts_tmp" /etc/hosts
