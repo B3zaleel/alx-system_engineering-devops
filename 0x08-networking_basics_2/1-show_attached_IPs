@@ -3,4 +3,4 @@
 # Method 1
 # ip -4 -br address | grep -oE '([0-9]+\.?){4}'
 # Method 2
-ifconfig | grep -oE 'inet[^0-9]+([0-9]+\.?){4}' | grep -oE '([0-9]+\.?){4}'
+ifconfig | grep -oE 'inet\s(addr:)?([0-9]+\.?){4}' | grep -oE '([0-9]+\.?){4}'
