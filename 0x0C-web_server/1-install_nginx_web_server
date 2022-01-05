@@ -3,9 +3,9 @@
 apt update
 apt -y install nginx
 sudo ufw allow 'Nginx HTTP'
-sudo chmod -R 755 /var/www
 # create the required directories
 mkdir -p /var/www/html/
+sudo chmod -R 755 /var/www
 # create the content of the home page
 echo 'Hello World!' > /var/www/html/index.html
 service nginx restart
