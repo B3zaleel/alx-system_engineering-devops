@@ -5,11 +5,11 @@ if [ "$(which nginx | grep -c 'nginx')" -le 0 ]; then
 	apt -y install nginx
 fi
 # create the required directories
-bash -c "mkdir -p /var/www/html/ /var/www/error/"
+mkdir -p /var/www/html/ /var/www/error/
 # create the content of the home page
-bash -c "echo 'Hello World' > /var/www/html/index.html"
+echo "Hello World" > /var/www/html/index.html
 # create the content of the 404 page
-bash -c 'echo -e "Ceci n\x27est pas une page" > /var/www/error/404.html'
+echo -e "Ceci n\x27est pas une page" > /var/www/error/404.html
 
 # the server's configuration
 SERVER_CONFIG=\
@@ -37,7 +37,7 @@ SERVER_CONFIG=\
 	}
 }"
 
-bash -c "echo -e '$SERVER_CONFIG' > /etc/nginx/sites-enabled/default"
+echo -e "$SERVER_CONFIG" > /etc/nginx/sites-enabled/default
 
 if [ "$(pgrep -c nginx)" -le 0 ]; then
 	service nginx start
