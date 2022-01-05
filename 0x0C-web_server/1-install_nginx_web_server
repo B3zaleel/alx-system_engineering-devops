@@ -10,7 +10,22 @@ sudo chmod -R 755 /var/www
 bash -c "mkdir -p /var/www/html/"
 # create the content of the home page
 bash -c "echo 'Hello World!' > /var/www/html/index.html"
+# the server's configuration
+SERVER_CONFIG=\
+"server {
+	listen 80 default_server;
+	listen [::]:80 default_server;
 
+	root /var/www/html;
+	index index.html index.htm index.nginx-debian.html;
+
+	server_name _;
+
+	location / {
+		try_files \$uri \$uri/ =404;
+	}
+}"
+bash -c "echo -e '$SERVER_CONFIG' > /etc/nginx/sites-enabled/default"
 if [ "$(pgrep -c nginx)" -le 0 ]; then
 	service nginx start
 else
