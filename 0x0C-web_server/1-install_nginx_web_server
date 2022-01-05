@@ -7,7 +7,9 @@ fi
 # create the required directories
 sudo bash -c "mkdir -p /var/www/html/"
 # create the content of the home page
-sudo echo 'Hello World!' > /var/www/html/index.html
+sudo ufw allow 'Nginx HTTP'
+sudo chmod -R 755 /var/www
+sudo bash -c "echo 'Hello World!' > /var/www/html/index.html"
 
 # the server's configuration
 SERVER_CONFIG=\
