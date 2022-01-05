@@ -5,10 +5,9 @@ if [ "$(which nginx | grep -c 'nginx')" -le 0 ]; then
 	apt -y install nginx
 fi
 # create the required directories
-bash -c "mkdir -p /var/www/html/"
+# bash -c "mkdir -p /var/www/html/"
 # create the content of the home page
-echo 'Holberton School' > /var/www/html/index.html
-# echo 'Hello World!' > /var/www/html/index.html
+echo 'Hello World!' > /var/www/html/index.html
 
 # the server's configuration
 SERVER_CONFIG=\
