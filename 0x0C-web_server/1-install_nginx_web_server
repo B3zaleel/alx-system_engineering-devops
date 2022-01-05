@@ -1,14 +1,13 @@
 #!/usr/bin/env bash
 # Installs, configures, and starts the server
-add-apt-repository ppa:nginx/stable
-apt update
 apt-get update
-apt -y install nginx
 apt-get -y install nginx
 sudo ufw allow 'Nginx HTTP'
-# create the required directories
-mkdir -p /var/www/html/
+sudo mkdir -p /var/www/html
 sudo chmod -R 755 /var/www
-# create the content of the home page
 echo 'Hello World!' > /var/www/html/index.html
-service nginx restart
+if [ "$(pgrep -c nginx)" -le 0 ]; then
+	service nginx start
+else
+	service nginx restart
+fi
