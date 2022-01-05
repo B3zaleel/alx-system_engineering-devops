@@ -4,7 +4,7 @@ if [ "$(which nginx | grep -c 'nginx')" -le 0 ]; then
 	apt update
 	apt -y install nginx
 fi
-ufw allow 'Nginx HTTP'
+sudo ufw allow 'Nginx HTTP'
 # create the required directories
 bash -c "mkdir -p /var/www/html/"
 # create the content of the home page
