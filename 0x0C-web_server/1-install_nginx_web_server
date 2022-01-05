@@ -8,9 +8,4 @@ sudo chmod -R 755 /var/www
 mkdir -p /var/www/html/
 # create the content of the home page
 echo 'Hello World!' > /var/www/html/index.html
-
-if [ "$(pgrep -c nginx)" -le 0 ]; then
-	service nginx start
-else
-	service nginx restart
-fi
+service nginx restart
