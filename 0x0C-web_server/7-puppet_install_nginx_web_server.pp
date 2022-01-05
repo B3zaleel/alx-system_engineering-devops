@@ -1,9 +1,4 @@
 # Nginx server setup and configuration
-exec { 'Add the nginx source to the apt repository':
-  command => 'sudo add-apt-repository ppa:nginx/stable',
-  path    => '/usr/bin:/usr/sbin:/bin'
-}
-
 exec { 'Update the apt repository':
   command => 'apt update',
   path    => '/usr/bin:/usr/sbin:/bin'
