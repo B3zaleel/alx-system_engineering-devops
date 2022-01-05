@@ -1,29 +1,31 @@
 # Nginx server setup and configuration
+exec { 'Add the nginx source to the apt repository':
+  command => 'sudo add-apt-repository ppa:nginx/stable',
+  path    => '/usr/bin:/usr/sbin:/bin'
+}
+
 exec { 'Update the apt repository':
   command => 'apt update',
   path    => '/usr/bin:/usr/sbin:/bin'
 }
 
-exec { 'Update the apt repository':
-  command => 'apt -y install nginx=1.18.0-0ubuntu1.2',
-  path    => '/usr/bin:/usr/sbin:/bin'
+package { 'The web server':
+  ensure          => installed,
+  name            => 'nginx',
+  provider        => 'apt',
+  install_options => ['-y']
 }
 
-# package { 'The web server':
-#   ensure          => installed,
-#   name            => 'nginx',
-#   provider        => 'apt',
-#   install_options => ['-y']
-# }
-
 file { 'The home page':
+  ensure  => file,
   path    => '/var/www/html/index.html',
   mode    => '0744',
   owner   => 'www-data',
-  content => 'Hello World'
+  content => "Hello World\n"
 }
 
 file { 'The 404 page':
+  ensure  => file,
   path    => '/var/www/error/404.html',
   mode    => '0744',
   owner   => 'www-data',
@@ -31,7 +33,7 @@ file { 'The 404 page':
 }
 
 file { 'Nginx server config file':
-  ensure  => present,
+  ensure  => file,
   path    => '/etc/nginx/sites-enabled/default',
   mode    => '0744',
   owner   => 'www-data',
