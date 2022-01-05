@@ -15,7 +15,7 @@ file { 'The home page':
   path    => '/var/www/html/index.html',
   mode    => '0744',
   owner   => 'www-data',
-  content => 'Hellow World\n'
+  content => 'Hello World'
 }
 
 file { 'The 404 page':
