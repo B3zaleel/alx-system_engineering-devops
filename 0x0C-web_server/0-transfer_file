@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+# Transfers a file to a server
+if [[ "${#@}" -lt 4 ]]; then
+	echo 'Usage: 0-transfer_file PATH_TO_FILE IP USERNAME PATH_TO_SSH_KEY'
+else
+	PATH_TO_FILE="$1"
+	IP="$2"
+	USERNAME="$3"
+	PATH_TO_SSH_KEY="$4"
+	# shellcheck disable=2088
+	scp -i "$PATH_TO_SSH_KEY" \
+		-o "StrictHostKeyChecking no" \
+		"$PATH_TO_FILE" \
+		"$USERNAME@$IP":'~/'"$(echo "$PATH_TO_FILE" | grep -oE '[^/]+' | tail -n1)"
+fi
