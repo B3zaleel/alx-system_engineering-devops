@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
 # Installs, configures, and starts the server
 if [ "$(which nginx | grep -c 'nginx')" -le 0 ]; then
-	apt update
-	apt -y install nginx
+	sudo apt update
+	sudo apt -y install nginx
 fi
 # create the required directories
-# bash -c "mkdir -p /var/www/html/"
+sudo bash -c "mkdir -p /var/www/html/"
 # create the content of the home page
-echo 'Hello World!' > /var/www/html/index.html
+sudo echo 'Hello World!' > /var/www/html/index.html
 
 # the server's configuration
 SERVER_CONFIG=\
@@ -25,10 +25,10 @@ SERVER_CONFIG=\
 	}
 }"
 
-echo -e "$SERVER_CONFIG" > /etc/nginx/sites-enabled/default
+sudo echo -e "$SERVER_CONFIG" > /etc/nginx/sites-enabled/default
 
 if [ "$(pgrep -c nginx)" -le 0 ]; then
-	service nginx start
+	sudo service nginx start
 else
-	service nginx restart
+	sudo service nginx restart
 fi
