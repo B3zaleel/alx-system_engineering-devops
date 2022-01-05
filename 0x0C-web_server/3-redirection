@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 # Installs, configures, and starts the server
 if [ "$(which nginx | grep -c 'nginx')" -le 0 ]; then
-	apt update
-	apt -y install nginx
+	apt-get update
+	apt-get -y install nginx
 fi
 # create the required directories
 bash -c "mkdir -p /var/www/html/"
