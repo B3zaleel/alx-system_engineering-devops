@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Installs, configures, and starts the server
-if [ "$(which nginx | grep -c 'nginx')" -le 0 ]; then
+if [ "$(dpkg -l | grep -c nginx)" -le 0 ]; then
 	apt update
 	apt -y install nginx
 fi
