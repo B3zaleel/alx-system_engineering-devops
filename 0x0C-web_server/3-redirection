@@ -1,15 +1,11 @@
 #!/usr/bin/env bash
 # Installs, configures, and starts the server
-if [ "$(which nginx | grep -c 'nginx')" -le 0 ]; then
-	apt-get update
-	apt-get -y install nginx
-fi
-# create the required directories
-bash -c "mkdir -p /var/www/html/"
-# create the content of the home page
-bash -c "echo 'Hello World!' > /var/www/html/index.html"
-
-# the server's configuration
+apt-get update
+apt-get -y install nginx
+sudo ufw allow 'Nginx HTTP'
+mkdir -p /var/www/html/
+sudo chmod -R 755 /var/www
+echo 'Hello World!' > /var/www/html/index.html
 SERVER_CONFIG=\
 "server {
 	listen 80 default_server;
