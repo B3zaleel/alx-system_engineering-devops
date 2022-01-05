@@ -4,12 +4,17 @@ exec { 'Update the apt repository':
   path    => '/usr/bin:/usr/sbin:/bin'
 }
 
-package { 'The web server':
-  ensure          => installed,
-  name            => 'nginx',
-  provider        => 'apt',
-  install_options => ['-y']
+exec { 'Update the apt repository':
+  command => 'apt -y install nginx=1.18.0-0ubuntu1.2',
+  path    => '/usr/bin:/usr/sbin:/bin'
 }
+
+# package { 'The web server':
+#   ensure          => installed,
+#   name            => 'nginx',
+#   provider        => 'apt',
+#   install_options => ['-y']
+# }
 
 file { 'The home page':
   path    => '/var/www/html/index.html',
