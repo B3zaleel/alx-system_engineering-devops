@@ -1,16 +1,12 @@
 #!/usr/bin/env bash
 # Installs, configures, and starts the server
-if [ "$(which nginx | grep -c 'nginx')" -le 0 ]; then
-	apt update
-	apt -y install nginx
-fi
-# create the required directories
-bash -c "mkdir -p /var/www/html/ /var/www/error/"
-# create the content of the home page
-bash -c "echo 'Hello World' > /var/www/html/index.html"
-# create the content of the 404 page
-bash -c 'echo -e "Ceci n\x27est pas une page" > /var/www/error/404.html'
-
+apt-get update
+apt-get -y install nginx
+ufw allow 'Nginx HTTP'
+mkdir -p /var/www/html /var/www/error
+chmod -R 755 /var/www
+echo 'Hello World!' > /var/www/html/index.html
+echo -e "Ceci n\x27est pas une page" > /var/www/error/404.html
 # the server's configuration
 SERVER_CONFIG=\
 "server {
@@ -36,9 +32,7 @@ SERVER_CONFIG=\
 		internal;
 	}
 }"
-
 bash -c "echo -e '$SERVER_CONFIG' > /etc/nginx/sites-enabled/default"
-
 if [ "$(pgrep -c nginx)" -le 0 ]; then
 	service nginx start
 else
