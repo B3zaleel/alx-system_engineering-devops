@@ -1,6 +1,6 @@
 # Nginx web server setup and configuration
 exec { 'Update the apt repository':
-  command => 'apt update',
+  command => 'apt-get update',
   path    => '/usr/bin:/usr/sbin:/bin'
 }
 
@@ -14,7 +14,7 @@ package { 'The web server':
 file { 'The home page':
   ensure  => file,
   path    => '/var/www/html/index.html',
-  mode    => '0644',
+  mode    => '0744',
   owner   => 'www-data',
   content => "Hello World!\n"
 }
@@ -22,7 +22,7 @@ file { 'The home page':
 file { 'The 404 page':
   ensure  => file,
   path    => '/var/www/error/404.html',
-  mode    => '0644',
+  mode    => '0744',
   owner   => 'www-data',
   content => "Ceci n'est pas une page\n"
 }
@@ -30,7 +30,7 @@ file { 'The 404 page':
 file { 'Nginx server config file':
   ensure  => file,
   path    => '/etc/nginx/sites-enabled/default',
-  mode    => '0644',
+  mode    => '0744',
   owner   => 'www-data',
   content =>
 "server {
