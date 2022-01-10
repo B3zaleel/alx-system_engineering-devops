@@ -5,16 +5,15 @@ exec { 'update-apt':
 }
 
 package { 'nginx':
-  ensure          => installed,
-  provider        => 'apt',
-  install_options => ['-y', '-q'],
-  require         => Exec['update-apt']
+  ensure  => installed,
+  require => Exec['update-apt']
 }
 
 file { 'Home-Page':
   ensure  => file,
   path    => '/var/www/html/index.html',
-  content => 'Hello World!'
+  content => 'Hello World!',
+  require => Package['nginx']
 }
 
 # file { '404-Page':
