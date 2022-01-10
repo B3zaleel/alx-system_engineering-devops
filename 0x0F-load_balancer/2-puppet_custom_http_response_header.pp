@@ -4,17 +4,12 @@ exec { 'Update the apt repository':
   path    => '/usr/bin:/usr/sbin:/bin'
 }
 
-exec { 'Install the web server':
-  command => 'apt-get -y install nginx',
-  path    => '/usr/bin:/usr/sbin:/bin'
+package { 'The web server':
+  ensure          => installed,
+  name            => 'nginx',
+  provider        => 'apt',
+  install_options => ['-y']
 }
-
-# package { 'The web server':
-#   ensure          => installed,
-#   name            => 'nginx',
-#   provider        => 'apt',
-#   install_options => ['-y']
-# }
 
 file { 'The static files directory':
   ensure => directory,
@@ -86,7 +81,22 @@ file { 'Nginx server config file':
 }"
 }
 
-exec { 'Start the server':
+exec { 'Stop servers listening at port 80':
+  command => 'pkill haproxy',
+  path    => '/usr/bin:/usr/sbin:/bin'
+}
+
+exec { 'Stop servers listening at port 80':
+  command => 'pkill nginx',
+  path    => '/usr/bin:/usr/sbin:/bin'
+}
+
+exec { 'Stop servers listening at port 80':
+  command => 'pkill apache2',
+  path    => '/usr/bin:/usr/sbin:/bin'
+}
+
+exec { 'Start the web server':
   command => 'service nginx restart',
   path    => '/usr/bin:/usr/sbin:/bin'
 }
