@@ -9,18 +9,11 @@ package { 'nginx':
   require => Exec['update-apt']
 }
 
-file { 'Home-Page':
+file { '/var/www/html/index.html':
   ensure  => file,
-  path    => '/var/www/html/index.html',
   content => 'Hello World!',
   require => Package['nginx']
 }
-
-# file { '404-Page':
-#   ensure  => file,
-#   path    => '/var/www/error/404.html',
-#   content => "Ceci n'est pas une page"
-# }
 
 file_line { 'Custom-Header':
   ensure  => present,
