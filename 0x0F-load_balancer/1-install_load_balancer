@@ -3,7 +3,7 @@
 apt-get update
 apt-get -y install --no-install-recommends software-properties-common
 add-apt-repository -y ppa:vbernat/haproxy-2.4
-apt-get -y install haproxy=2.4.\*
+apt-get -y install haproxy
 # the load balancer's configuration
 DOMAIN_NAME='b3zaleel-alx.tech'
 INIT_FILE='/etc/default/haproxy'
@@ -23,6 +23,10 @@ frontend $DOMAIN_NAME-frontend
 	default_backend $DOMAIN_NAME-backend
 #--$DOMAIN_NAME-params-end--
 "
+
+[ -f "$INIT_FILE" ] || touch "$INIT_FILE"
+[ -f "$CONFIG_FILE" ] || touch "$CONFIG_FILE"
+
 CONFIG_WORDS=$(grep -Eco "$DOMAIN_NAME-backend" < $CONFIG_FILE)
 
 if [ "$(grep -Eco '^ENABLED=[01]$' < $INIT_FILE)" -gt 0 ]; then
