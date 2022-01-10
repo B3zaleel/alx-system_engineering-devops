@@ -15,17 +15,15 @@ file { 'Home-Page':
   path    => '/var/www/html/index.html',
   mode    => '0666',
   owner   => 'www-data',
-  content => "Hello World!\n",
-  require => Exec['install-nginx']
+  content => "Holberton School\n"
 }
 
 file { '404-Page':
   ensure  => file,
-  path    => '/var/www/error/404.html',
+  path    => '/var/www/html/404.html',
   mode    => '0666',
   owner   => 'www-data',
-  content => "Ceci n'est pas une page\n",
-  require => Exec['install-nginx']
+  content => "Ceci n'est pas une page\n"
 }
 
 file { 'Nginx-Config':
@@ -39,13 +37,13 @@ file { 'Nginx-Config':
 	listen [::]:80 default_server;
 
 	root /var/www/html;
-	index index.html index.htm index.nginx-debian.html;
+	index index.html index.nginx-debian.html;
 
 	server_name _;
 
+  add_header X-Served-By \$hostname;
 	location / {
 		try_files \$uri \$uri/ =404;
-		add_header X-Served-By \$hostname;
 	}
 
 	if (\$request_filename ~ redirect_me){
@@ -53,11 +51,6 @@ file { 'Nginx-Config':
 	}
 
 	error_page 404 /404.html;
-	location = /404.html {
-		root /var/www/error/;
-		internal;
-		add_header X-Served-By \$hostname;
-	}
 }
 ",
   require => [File['Home-Page'], File['404-Page']]
