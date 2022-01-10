@@ -1,7 +1,6 @@
 # Nginx web server setup and configuration
 exec { 'update-apt':
-  command => 'apt-get update',
-  path    => '/usr/bin:/usr/sbin:/bin'
+  command => '/usr/bin/apt-get update'
 }
 
 package { 'nginx':
@@ -14,7 +13,7 @@ file_line { 'Redirection':
   path    => '/etc/nginx/sites-available/default',
   after   => 'listen 80 default_server;',
   line    => 'rewrite ^/redirect_me https://sketchfab.com/bluepeno/models permanent;',
-  require => Package['nginx'],
+  require => Package['nginx']
 }
 
 file_line { 'Custom-Header':
@@ -22,7 +21,7 @@ file_line { 'Custom-Header':
   path    => '/etc/nginx/sites-available/default',
   after   => 'listen 80 default_server;',
   line    => 'add_header X-Served-By $hostname;',
-  require => Package['nginx'],
+  require => Package['nginx']
 }
 
 file { '/var/www/html/index.html':
