@@ -13,50 +13,22 @@ exec { 'install-nginx':
 file { 'Home-Page':
   ensure  => file,
   path    => '/var/www/html/index.html',
-  mode    => '0666',
-  owner   => 'www-data',
-  content => "Holberton School\n"
+  content => "Hello World!\n"
 }
 
 file { '404-Page':
   ensure  => file,
   path    => '/var/www/html/404.html',
-  mode    => '0666',
-  owner   => 'www-data',
   content => "Ceci n'est pas une page\n"
 }
 
-file { 'Nginx-Config':
-  ensure  => file,
-  path    => '/etc/nginx/sites-enabled/default',
-  mode    => '0666',
-  owner   => 'www-data',
-  content =>
-"server {
-	listen 80 default_server;
-	listen [::]:80 default_server;
-
-	root /var/www/html;
-	index index.html index.nginx-debian.html;
-
-	server_name _;
-
-  add_header X-Served-By \$hostname;
-	location / {
-		try_files \$uri \$uri/ =404;
-	}
-
-	if (\$request_filename ~ redirect_me){
-		rewrite ^ https://sketchfab.com/bluepeno/models permanent;
-	}
-
-	error_page 404 /404.html;
+file_line { 'Nginx-Config':
+  ensure  => present,
+  path    => '/etc/nginx/sites-available/default',
+  after   => 'server_name _;',
+  line    => "\tadd_header X-Served-By \$hostname;",
+  require => [File['Home-Page'], File['404-Page'], Exec['install-nginx']]
 }
-",
-  require => [File['Home-Page'], File['404-Page']]
-}
-
-service { 'nginx':
-  ensure  => running,
-  require => [Exec['install-nginx'], File['Nginx-Config']]
+-> service { 'nginx':
+  ensure  => running
 }
