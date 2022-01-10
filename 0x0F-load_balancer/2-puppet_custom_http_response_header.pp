@@ -1,47 +1,58 @@
 # Nginx web server setup and configuration
-package { 'nginx':
-  ensure   => present,
-  provider => 'apt'
+exec { 'apt-get-update':
+  command => 'bash -c "apt-get update; echo"',
+  path    => '/usr/bin:/usr/sbin:/bin'
 }
 
-file { 'The static files directory':
+package { 'nginx':
+  ensure          => installed,
+  provider        => 'apt',
+  install_options => ['-y'],
+  require         => Exec['apt-get-update']
+}
+
+file { 'Static-Files':
   ensure => directory,
   path   => '/var/www/',
   mode   => '0666',
   owner  => 'www-data'
 }
 
-file { 'The static files HTML pages directory':
-  ensure => directory,
-  path   => '/var/www/html',
-  mode   => '0666',
-  owner  => 'www-data'
+file { 'HTML-Pages':
+  ensure  => directory,
+  path    => '/var/www/html',
+  mode    => '0666',
+  owner   => 'www-data',
+  require => File['Static-Files']
 }
 
-file { 'The static files error pages directory':
-  ensure => directory,
-  path   => '/var/www/error',
-  mode   => '0666',
-  owner  => 'www-data'
+file { 'Error-Pages':
+  ensure  => directory,
+  path    => '/var/www/error',
+  mode    => '0666',
+  owner   => 'www-data',
+  require => File['Static-Files']
 }
 
-file { 'The home page':
+file { 'Home-Page':
   ensure  => file,
   path    => '/var/www/html/index.html',
   mode    => '0666',
   owner   => 'www-data',
-  content => "Hello World!\n"
+  content => "Hello World!\n",
+  require => File['HTML-Pages']
 }
 
-file { 'The 404 page':
+file { '404-Page':
   ensure  => file,
   path    => '/var/www/error/404.html',
   mode    => '0666',
   owner   => 'www-data',
-  content => "Ceci n'est pas une page\n"
+  content => "Ceci n'est pas une page\n",
+  require => File['Error-Pages']
 }
 
-file { 'Nginx server config file':
+file { 'Nginx-Config':
   ensure  => file,
   path    => '/etc/nginx/sites-enabled/default',
   mode    => '0666',
@@ -72,9 +83,11 @@ file { 'Nginx server config file':
 		add_header X-Served-By \$hostname;
 	}
 }
-"
+",
+  require => [File['Home-Page'], File['404-Page']]
 }
 
 service { 'nginx':
-  ensure => running
+  ensure  => running,
+  require => [Package['nginx'], File['Nginx-Config']]
 }
