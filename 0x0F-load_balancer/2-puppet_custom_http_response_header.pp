@@ -89,27 +89,8 @@ class config_files {
   }
 }
 
-# Server starup process
-class server_startup {
-  exec { 'Stop haproxy processes':
-    command => 'bash -c \'[ "$(pgrep -c haproxy)" -gt 0 ] && pkill haproxy; echo\'',
-    path    => '/usr/bin:/usr/sbin:/bin'
-  }
-
-  # exec { 'Stop nginx processes':
-  #   command => 'bash -c \'[ "$(pgrep -c nginx)" -gt 0 ] && pkill nginx; echo\'',
-  #   path    => '/usr/bin:/usr/sbin:/bin'
-  # }
-
-  exec { 'Stop apache processes':
-    command => 'bash -c \'[ "$(pgrep -c apache2)" -gt 0 ] && pkill apache2; echo\'',
-    path    => '/usr/bin:/usr/sbin:/bin'
-  }
-
-  # exec { 'Start the nginx web server':
-  #   command => 'service nginx restart',
-  #   path    => '/usr/bin:/usr/sbin:/bin'
-  # }
+# Essential processes
+class essential_services {
   service { 'nginx':
     ensure => running
   }
@@ -118,4 +99,4 @@ class server_startup {
 include software_resources
 include static_files
 include config_files
-include server_startup
+include essential_services
