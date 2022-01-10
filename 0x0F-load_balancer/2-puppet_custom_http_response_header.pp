@@ -1,59 +1,65 @@
 # Nginx web server setup and configuration
-exec { 'Update the apt repository':
-  command => 'apt-get update',
-  path    => '/usr/bin:/usr/sbin:/bin'
+# Software installations
+class software_resources {
+  # exec { 'Update the apt repository':
+  #   command => 'apt-get -q update',
+  #   path    => '/usr/bin:/usr/sbin:/bin'
+  # }
+  exec { 'Install the web server':
+    command => 'apt-get -q -y install nginx',
+    path    => '/usr/bin:/usr/sbin:/bin'
+  }
 }
 
-package { 'The web server':
-  ensure          => installed,
-  name            => 'nginx',
-  provider        => 'apt',
-  install_options => ['-y']
+# The static files
+class static_files {
+  # resources
+  file { 'The static files directory':
+    ensure => directory,
+    path   => '/var/www/',
+    mode   => '0666',
+    owner  => 'www-data'
+  }
+
+  file { 'The static files HTML pages directory':
+    ensure => directory,
+    path   => '/var/www/html',
+    mode   => '0666',
+    owner  => 'www-data'
+  }
+
+  file { 'The static files error pages directory':
+    ensure => directory,
+    path   => '/var/www/error',
+    mode   => '0666',
+    owner  => 'www-data'
+  }
+
+  file { 'The home page':
+    ensure  => file,
+    path    => '/var/www/html/index.html',
+    mode    => '0666',
+    owner   => 'www-data',
+    content => "Hello World!\n"
+  }
+
+  file { 'The 404 page':
+    ensure  => file,
+    path    => '/var/www/error/404.html',
+    mode    => '0666',
+    owner   => 'www-data',
+    content => "Ceci n'est pas une page\n"
+  }
 }
 
-file { 'The static files directory':
-  ensure => directory,
-  path   => '/var/www/',
-  mode   => '0666',
-  owner  => 'www-data'
-}
-
-file { 'The static files HTML pages directory':
-  ensure => directory,
-  path   => '/var/www/html',
-  mode   => '0666',
-  owner  => 'www-data'
-}
-
-file { 'The static files error pages directory':
-  ensure => directory,
-  path   => '/var/www/error',
-  mode   => '0666',
-  owner  => 'www-data'
-}
-
-file { 'The home page':
-  ensure  => file,
-  path    => '/var/www/html/index.html',
-  mode    => '0666',
-  owner   => 'www-data',
-  content => "Hello World!\n"
-}
-
-file { 'The 404 page':
-  ensure  => file,
-  path    => '/var/www/error/404.html',
-  mode    => '0666',
-  owner   => 'www-data',
-  content => "Ceci n'est pas une page\n"
-}
-
-file { 'Nginx server config file':
-  ensure  => file,
-  path    => '/etc/nginx/sites-enabled/default',
-  mode    => '0666',
-  owner   => 'www-data',
-  content =>
+# configuration files
+class config_files {
+  file { 'Nginx server config file':
+    ensure  => file,
+    path    => '/etc/nginx/sites-enabled/default',
+    mode    => '0666',
+    owner   => 'www-data',
+    content =>
 "server {
 	listen 80 default_server;
 	listen [::]:80 default_server;
@@ -78,25 +84,38 @@ file { 'Nginx server config file':
 		internal;
 		add_header X-Served-By \$hostname;
 	}
-}"
+}
+"
+  }
 }
 
-exec { 'Stop servers listening at port 80':
-  command => 'pkill haproxy',
-  path    => '/usr/bin:/usr/sbin:/bin'
+# Server starup process
+class server_startup {
+  exec { 'Stop haproxy processes':
+    command => 'bash -c \'[ "$(pgrep -c haproxy)" -gt 0 ] && pkill haproxy; echo\'',
+    path    => '/usr/bin:/usr/sbin:/bin'
+  }
+
+  # exec { 'Stop nginx processes':
+  #   command => 'bash -c \'[ "$(pgrep -c nginx)" -gt 0 ] && pkill nginx; echo\'',
+  #   path    => '/usr/bin:/usr/sbin:/bin'
+  # }
+
+  exec { 'Stop apache processes':
+    command => 'bash -c \'[ "$(pgrep -c apache2)" -gt 0 ] && pkill apache2; echo\'',
+    path    => '/usr/bin:/usr/sbin:/bin'
+  }
+
+  # exec { 'Start the nginx web server':
+  #   command => 'service nginx restart',
+  #   path    => '/usr/bin:/usr/sbin:/bin'
+  # }
+  service { 'nginx':
+    ensure => running
+  }
 }
 
-exec { 'Stop servers listening at port 80':
-  command => 'pkill nginx',
-  path    => '/usr/bin:/usr/sbin:/bin'
-}
-
-exec { 'Stop servers listening at port 80':
-  command => 'pkill apache2',
-  path    => '/usr/bin:/usr/sbin:/bin'
-}
-
-exec { 'Start the web server':
-  command => 'service nginx restart',
-  path    => '/usr/bin:/usr/sbin:/bin'
-}
+include software_resources
+include static_files
+include config_files
+include server_startup
