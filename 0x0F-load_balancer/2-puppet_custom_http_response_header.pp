@@ -1,6 +1,6 @@
 # Nginx web server setup and configuration
 exec { 'update-apt':
-  command => 'bash -c "apt-get update; echo"',
+  command => 'apt-get update',
   path    => '/usr/bin:/usr/sbin:/bin'
 }
 
@@ -14,17 +14,13 @@ package { 'nginx':
 file { 'Home-Page':
   ensure  => file,
   path    => '/var/www/html/index.html',
-  mode    => '0666',
-  owner   => 'www-data',
-  content => "Hello World!\n"
+  content => 'Hello World!'
 }
 
 # file { '404-Page':
 #   ensure  => file,
 #   path    => '/var/www/error/404.html',
-#   mode    => '0666',
-#   owner   => 'www-data',
-#   content => "Ceci n'est pas une page\n"
+#   content => "Ceci n'est pas une page"
 # }
 
 file_line { 'Custom-Header':
