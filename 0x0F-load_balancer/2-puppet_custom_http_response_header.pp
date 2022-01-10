@@ -4,34 +4,10 @@ exec { 'apt-get-update':
   path    => '/usr/bin:/usr/sbin:/bin'
 }
 
-package { 'nginx':
-  ensure          => installed,
-  provider        => 'apt',
-  install_options => ['-y'],
-  require         => Exec['apt-get-update']
-}
-
-file { 'Static-Files':
-  ensure => directory,
-  path   => '/var/www/',
-  mode   => '0666',
-  owner  => 'www-data'
-}
-
-file { 'HTML-Pages':
-  ensure  => directory,
-  path    => '/var/www/html',
-  mode    => '0666',
-  owner   => 'www-data',
-  require => File['Static-Files']
-}
-
-file { 'Error-Pages':
-  ensure  => directory,
-  path    => '/var/www/error',
-  mode    => '0666',
-  owner   => 'www-data',
-  require => File['Static-Files']
+exec { 'install-nginx':
+  command => 'bash -c "apt-get -y -q install nginx; echo"',
+  path    => '/usr/bin:/usr/sbin:/bin',
+  require => Exec['apt-get-update']
 }
 
 file { 'Home-Page':
@@ -40,7 +16,7 @@ file { 'Home-Page':
   mode    => '0666',
   owner   => 'www-data',
   content => "Hello World!\n",
-  require => File['HTML-Pages']
+  require => Exec['install-nginx']
 }
 
 file { '404-Page':
@@ -49,7 +25,7 @@ file { '404-Page':
   mode    => '0666',
   owner   => 'www-data',
   content => "Ceci n'est pas une page\n",
-  require => File['Error-Pages']
+  require => Exec['install-nginx']
 }
 
 file { 'Nginx-Config':
@@ -89,5 +65,5 @@ file { 'Nginx-Config':
 
 service { 'nginx':
   ensure  => running,
-  require => [Package['nginx'], File['Nginx-Config']]
+  require => [Exec['install-nginx'], File['Nginx-Config']]
 }
