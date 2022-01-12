@@ -1,0 +1,6 @@
+http://downloads.skullsecurity.org/passwords/john.txt.bz2
+http://downloads.skullsecurity.org/passwords/cain.txt.bz2
+http://downloads.skullsecurity.org/passwords/conficker.txt.bz2
+http://downloads.skullsecurity.org/passwords/500-worst-passwords.txt.bz2
+http://downloads.skullsecurity.org/passwords/twitter-banned.txt.bz2
+http://downloads.skullsecurity.org/passwords/hak5.txt.bz2
