@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+# Domain info fetcher
+# Fetches information about an array of subdomains.
+# 	Usage: fetch_subdomains domain subdomains
+# 	Example 1: fetch_subdomains google.com mail
+# 	Example 2: fetch_subdomains google.com 'www images maps mail'
+fetch_subdomains() {
+	domain="$1"
+	subdomains=()
+	readarray -t subdomains < <(echo "$2" | tr ' ' '\n')
+	for ((i = 0; i < "${#subdomains[@]}"; i++)) do
+		subdomain="${subdomains[i]}"
+		output_awk='{print "The subdomain", "'
+		output_awk="$output_awk$subdomain is a"
+		output_awk="$output_awk\", \$7, \"record and points to\", \$8}"
+		dig "$subdomain.$domain" \
+			| grep -A1 'ANSWER SECTION:' \
+			| tr '\n' ' ' \
+			| awk "$output_awk"
+	done
+}
+
+if [ "${#BASH_ARGV[@]}" -ge '2' ]; then
+	fetch_subdomains "$1" "$2"
+elif [ "${#BASH_ARGV[@]}" -ge '1' ]; then
+	fetch_subdomains "$1" "www lb-01 web-01 web-02"
+else
+	exit
+fi
