@@ -36,14 +36,13 @@ defaults
 #--b3zaleel-alx.tech-params-begin--
 frontend b3zaleel-alx.tech-http-frontend
 	bind *:80
-	option forwardfor
-	redirect scheme https code 301 if !{ ssl_fc }
+	mode http
+	redirect scheme https code 301 unless { ssl_fc }
 	http-request set-header X-Forwarded-Proto http
 	default_backend b3zaleel-alx.tech-backend
 
 frontend b3zaleel-alx.tech-https-frontend
 	bind *:443 ssl crt /etc/ssl/b3zaleel-alx.tech/b3zaleel-alx.tech.pem
-	option forwardfor
 	http-request set-header X-Forwarded-Proto https
 	default_backend b3zaleel-alx.tech-backend
 

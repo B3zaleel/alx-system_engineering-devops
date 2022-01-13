@@ -36,8 +36,13 @@ defaults
 #--b3zaleel-alx.tech-params-begin--
 frontend b3zaleel-alx.tech-frontend
 	bind *:80
+	mode http
+	http-request set-header X-Forwarded-Proto http
+	default_backend b3zaleel-alx.tech-backend
+
+frontend b3zaleel-alx.tech-https-frontend
 	bind *:443 ssl crt /etc/ssl/b3zaleel-alx.tech/b3zaleel-alx.tech.pem
-	option forwardfor
+	http-request set-header X-Forwarded-Proto https
 	default_backend b3zaleel-alx.tech-backend
 
 backend b3zaleel-alx.tech-backend
