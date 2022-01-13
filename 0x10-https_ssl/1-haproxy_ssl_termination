@@ -34,9 +34,9 @@ defaults
 	errorfile 504 /etc/haproxy/errors/504.http
 
 #--b3zaleel-alx.tech-params-begin--
-frontend b3zaleel-alx.tech-frontend
+frontend b3zaleel-alx.tech-http-frontend
 	bind *:80
-	mode http
+	redirect scheme https code 301 if !{ ssl_fc }
 	http-request set-header X-Forwarded-Proto http
 	default_backend b3zaleel-alx.tech-backend
 
@@ -46,7 +46,6 @@ frontend b3zaleel-alx.tech-https-frontend
 	default_backend b3zaleel-alx.tech-backend
 
 backend b3zaleel-alx.tech-backend
-	mode http
 	balance roundrobin
 	server web01 34.73.0.174:80 check
 	server web02 34.75.208.81:80 check
