@@ -47,5 +47,5 @@ frontend b3zaleel-alx.tech-https-frontend
 backend b3zaleel-alx.tech-backend
 	balance roundrobin
 	server web01 34.73.0.174:80 check
-	server web02 34.75.208.81:80 check
+	server web02 35.196.78.105:80 check
 #--b3zaleel-alx.tech-params-end--
