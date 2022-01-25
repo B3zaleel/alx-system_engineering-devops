@@ -1,5 +1,47 @@
-# Solutions to the CMD challenge
+# Solutions to the CMD Challenge
 
++ 1 -> hello_world<br/>Your first challenge is to print "hello world" on the terminal in a single command.
+  ```powershell
+  echo 'hello world'
+  ```
++ 2 -> current_working_directory<br/>Print the current working directory.
+  ```powershell
+  pwd
+  ```
++ 3 -> list_files<br/>List names of all the files in the current directory, one file per line.
+  ```powershell
+  find -type f -regex ".*" -printf "%f\n"
+  ```
++ 4 -> foo<br/>
+  ```powershell
+  ```
++ 5 -> foo<br/>
+  ```powershell
+  ```
++ 6 -> foo<br/>
+  ```powershell
+  ```
++ 7 -> foo<br/>
+  ```powershell
+  ```
++ 8 -> foo<br/>
+  ```powershell
+  ```
++ 9 -> foo<br/>
+  ```powershell
+  ```
++ 10 -> foo<br/>
+  ```powershell
+  ```
++ 11 -> foo<br/>
+  ```powershell
+  ```
++ 12 -> foo<br/>
+  ```powershell
+  ```
++ 13 -> foo<br/>
+  ```powershell
+  ```
 + 14 -> search_for_files_containing_string<br/>Print all files in the current directory, one per line (not the path, just the filename) that contain the string "500".
   ```powershell
   grep -sl 500 * .*
@@ -59,6 +101,18 @@
 + 28 -> dirs_containing_files_with_extension<br/>In this challenge there are some directories containing files with different extensions. Print all directories, one per line without duplicates that contain one or more files with a ".tf" extension.
   ```powershell
   find -type f -regex '.*\.tf$' -exec bash -c 'echo {} | grep -oE ".*/" | cut -c 3- | rev | cut -c 2- | rev' \; | sort | uniq
+  ```
++ 29 -> files_starting_with_a_number<br/>There are a mix of files in this directory that start with letters and numbers. Print the filenames (just the filenames) of all files that start with a number recursively in the current directory.
+  ```powershell
+  find -type f -regex ".*" -printf "%f\n" | grep -E "^[0-9]"
+  ```
++ 30 -> print_nth_line<br/>Print the 25th line of the file faces.txt
+  ```powershell
+  head -n 25 faces.txt | tail -n 1
+  ```
++ 31 -> reverse_readme<br/>Print the lines of the file reverse-me.txt in this directory in reverse line order so that the last line is printed first and the first line is printed last.
+  ```powershell
+  cat reverse-me.txt
   ```
 + 28 -> foo<br/>
   ```powershell
