@@ -21,7 +21,7 @@ This project contains tasks for learning about how to consume RESTful APIs.
     + Format must be: `"USER_ID","USERNAME","TASK_COMPLETED_STATUS","TASK_TITLE"`.
     + File name must be: `USER_ID.csv`.
 
-+ [ ] 2. Export to JSON<br/>_**[2-export_to_JSON.py](2-export_to_JSON.py)**_ contains a Python script that uses what was done in task #0 to export data in the JSON format.
++ [x] 2. Export to JSON<br/>_**[2-export_to_JSON.py](2-export_to_JSON.py)**_ contains a Python script that uses what was done in task #0 to export data in the JSON format.
   + Requirements:
     + Records all tasks that are owned by this employee.
     + Format must be: `{ "USER_ID": [{"task": "TASK_TITLE", "completed": TASK_COMPLETED_STATUS, "username": "USERNAME"}, {"task": "TASK_TITLE", "completed": TASK_COMPLETED_STATUS, "username": "USERNAME"}, ... ]}`.
