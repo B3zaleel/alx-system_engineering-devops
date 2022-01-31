@@ -27,7 +27,7 @@ This project contains tasks for learning about how to consume RESTful APIs.
     + Format must be: `{ "USER_ID": [{"task": "TASK_TITLE", "completed": TASK_COMPLETED_STATUS, "username": "USERNAME"}, {"task": "TASK_TITLE", "completed": TASK_COMPLETED_STATUS, "username": "USERNAME"}, ... ]}`.
     + File name must be: `USER_ID.json`.
 
-+ [ ] 3. Dictionary of list of dictionaries<br/>_**[3-dictionary_of_list_of_dictionaries.py](3-dictionary_of_list_of_dictionaries.py)**_ contains a Python script that uses what was done in task #0 to export data in the JSON format.
++ [x] 3. Dictionary of list of dictionaries<br/>_**[3-dictionary_of_list_of_dictionaries.py](3-dictionary_of_list_of_dictionaries.py)**_ contains a Python script that uses what was done in task #0 to export data in the JSON format.
   + Requirements:
     + Records all tasks from all employees
     + Format must be: `{ "USER_ID": [ {"username": "USERNAME", "task": "TASK_TITLE", "completed": TASK_COMPLETED_STATUS}, {"username": "USERNAME", "task": "TASK_TITLE", "completed": TASK_COMPLETED_STATUS}, ... ], "USER_ID": [ {"username": "USERNAME", "task": "TASK_TITLE", "completed": TASK_COMPLETED_STATUS}, {"username": "USERNAME", "task": "TASK_TITLE", "completed": TASK_COMPLETED_STATUS}, ... ]}`.
