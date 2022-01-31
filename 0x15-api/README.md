@@ -4,7 +4,7 @@ This project contains tasks for learning about how to consume RESTful APIs.
 
 ## Tasks To Complete
 
-+ [ ] 0. Gather data from an API<br/>_**[0-gather_data_from_an_API.py](0-gather_data_from_an_API.py)**_ contains a Python script that uses this [REST API](https://jsonplaceholder.typicode.com/), and for a given employee ID, returns information about his/her TODO list progress.
++ [x] 0. Gather data from an API<br/>_**[0-gather_data_from_an_API.py](0-gather_data_from_an_API.py)**_ contains a Python script that uses this [REST API](https://jsonplaceholder.typicode.com/), and for a given employee ID, returns information about his/her TODO list progress.
   + Requirements:
     + You must use `urllib` or `requests` module.
     + The script must accept an integer as a parameter, which is the employee ID.
