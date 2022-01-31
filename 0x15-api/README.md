@@ -15,7 +15,7 @@ This project contains tasks for learning about how to consume RESTful APIs.
         + `TOTAL_NUMBER_OF_TASKS`: total number of tasks, which is the sum of completed and non-completed tasks.
       + Second and N next lines display the title of completed tasks: `TASK_TITLE` (with 1 tabulation and 1 space before the `TASK_TITLE`).
 
-+ [ ] 1. Export to CSV<br/>_**[1-export_to_CSV.py](1-export_to_CSV.py)**_ contains a Python script that uses what was done in task #0 to export data in the CSV format.
++ [x] 1. Export to CSV<br/>_**[1-export_to_CSV.py](1-export_to_CSV.py)**_ contains a Python script that uses what was done in task #0 to export data in the CSV format.
   + Requirements:
     + Records all tasks that are owned by this employee.
     + Format must be: `"USER_ID","USERNAME","TASK_COMPLETED_STATUS","TASK_TITLE"`.
