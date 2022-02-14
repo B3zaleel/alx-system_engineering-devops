@@ -4,7 +4,7 @@ This project contains tasks for learning about writing a postmortem.
 
 ## Tasks To Complete
 
-+ [ ] 0. My first postmortem<br/>_**[Blog_Post.md](Blog_Post.md)**_ contains a blog post that meets the following requirements:
++ [x] 0. My first postmortem<br/>_**[Blog_Post.md](Blog_Post.md)**_ contains a blog post that meets the following requirements:
   + **INFO:**
     + Using one of the web stack debugging project issue or an outage you have personally face, write a postmortem. Most of you will never have faced an outage, so just get creative and invent your own :)
     + While postmortem format can vary, stick to this one so that you can get properly reviewed by your peers.
@@ -28,6 +28,6 @@ This project contains tasks for learning about writing a postmortem.
       + A list of tasks to address the issue (be very specific, like a TODO, example: patch Nginx server, add monitoring on server memory…).
       + Be brief and straight to the point, between 400 to 600 words
 
-+ [ ] 1. Make people want to read your postmortem
++ [x] 1. Make people want to read your postmortem
   + We are constantly stormed by a quantity of information, it’s tough to get people to read you.
   + Make your post-mortem attractive by adding humour, a pretty diagram or anything that would catch your audience attention.
