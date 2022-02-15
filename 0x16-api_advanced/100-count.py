@@ -13,14 +13,18 @@ BASE_URL = 'https://www.reddit.com'
 def sort_histogram(histogram={}):
     '''Sorts and prints the given histogram.
     '''
-    histogram = dict(filter(lambda kv: kv[1], histogram.items()))
-    keys_all = map(lambda k: k.lower(), histogram.keys())
-    histogram_aggregate = dict(map(
+    histogram = dict(list(filter(lambda kv: kv[1], histogram.items())))
+    histogram = dict(list(map(
+        lambda kv: (kv[0].lower(), kv[1]),
+        histogram.items()
+    )))
+    keys_all = list(map(lambda k: k.lower(), histogram.keys()))
+    histogram_aggregate = dict(list(map(
         lambda k: (k, histogram[k] * keys_all.count(k)),
         set(keys_all)
-    ))
+    )))
     histogram = histogram_aggregate
-    histogram_items = histogram.items()
+    histogram_items = list(histogram.items())
     histogram_items.sort(
         key=lambda kv: kv[0],
         reverse=False
@@ -30,12 +34,12 @@ def sort_histogram(histogram={}):
         reverse=True
     )
     histogram = dict(histogram_items)
-    res_str = '\n'.join(
+    res_str = '\n'.join(list(
         map(
             lambda kv: '{}: {}'.format(kv[0], kv[1]),
             histogram.items()
         )
-    )
+    ))
     print(res_str)
     return histogram
 
@@ -69,13 +73,13 @@ def count_words(subreddit, word_list, histogram={}, n=0, after=None):
         allow_redirects=False
     )
     if not histogram:
-        histogram = dict(list(map(lambda word: (word, 0), word_list)))
+        histogram = dict(map(lambda word: (word, 0), word_list))
     if res.status_code == 200:
         data = res.json()['data']
         posts = data['children']
         titles = list(map(lambda post: post['data']['title'], posts))
-        histogram = dict(map(
-            lambda kv: kv[1] + sum(map(
+        histogram = dict(list(map(
+            lambda kv: (kv[0], kv[1] + sum(list(map(
                 lambda txt: len(
                     re.findall(
                         r'\s{}\s'.format(kv[0]),
@@ -83,12 +87,13 @@ def count_words(subreddit, word_list, histogram={}, n=0, after=None):
                         re.IGNORECASE
                     )),
                 titles
-            )),
+            )))),
             histogram.items()
-        ))
+        )))
         if len(posts) >= limit and data['after']:
             return count_words(
                 subreddit,
+                word_list,
                 histogram,
                 n + len(posts),
                 data['after']
