@@ -23,7 +23,8 @@ def recurse(subreddit, hot_list=[], n=0, after=None):
         ])
     }
     sort = 'hot'
-    limit = 1
+    # limit = 1
+    limit = 30
     res = requests.get(
         '{}/r/{}/.json?sort={}&limit={}&count={}&after={}'.format(
             BASE_URL,
@@ -41,7 +42,8 @@ def recurse(subreddit, hot_list=[], n=0, after=None):
         posts = data['children']
         count = len(posts)
         hot_list.extend(list(map(lambda x: x['data']['title'], posts)))
-        if data['after']:
+        # if data['after']:
+        if count >= limit and data['after']:
             return recurse(subreddit, hot_list, n + count, data['after'])
         else:
             return hot_list if hot_list else None
