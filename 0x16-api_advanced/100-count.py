@@ -29,13 +29,11 @@ def sort_histogram(histogram={}):
         key=lambda kv: kv[1],
         reverse=True
     )
-    res_str = '\n'.join(list(
-        map(
-            lambda kv: '{}: {}'.format(kv[0], kv[1]),
-            histogram_items
-        )
-    ))
-    histogram = dict(histogram_items)
+    res_str = '\n'.join(list(map(
+        lambda kv: '{}: {}'.format(kv[0].lower(), kv[1]),
+        histogram_items
+    )))
+    histogram = dict(map(lambda x: (x[0], x[1]), histogram_items))
     if res_str:
         print(res_str)
     return histogram
