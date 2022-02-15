@@ -3,6 +3,7 @@
 '''
 import re
 import requests
+from collections import OrderedDict
 
 
 BASE_URL = 'https://www.reddit.com'
@@ -29,13 +30,13 @@ def sort_histogram(histogram={}):
         key=lambda kv: kv[1],
         reverse=True
     )
-    histogram = dict(histogram_items)
     res_str = '\n'.join(list(
         map(
             lambda kv: '{}: {}'.format(kv[0], kv[1]),
-            histogram.items()
+            histogram_items
         )
     ))
+    histogram = OrderedDict(histogram_items)
     if res_str:
         print(res_str)
     return histogram
