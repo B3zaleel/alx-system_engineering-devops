@@ -4,7 +4,7 @@ This project contains more tasks for learning how to consume RESTful APIs.
 
 ## Tasks To Complete
 
-+ [ ] 0. How many subs?<br/>_**[0-subs.py](0-subs.py)**_ contains a Python function queries the [Reddit API](https://www.reddit.com/dev/api) and returns the number of subscribers (not active users, total subscribers) for a given subreddit. If an invalid subreddit is given, the function should return 0.
++ [x] 0. How many subs?<br/>_**[0-subs.py](0-subs.py)**_ contains a Python function queries the [Reddit API](https://www.reddit.com/dev/api) and returns the number of subscribers (not active users, total subscribers) for a given subreddit. If an invalid subreddit is given, the function should return 0.
   + Hint: No authentication is necessary for most features of the Reddit API. If you’re getting errors related to Too Many Requests, ensure you’re setting a custom User-Agent.
   + Requirements:
     + Prototype: `def number_of_subscribers(subreddit)`.
