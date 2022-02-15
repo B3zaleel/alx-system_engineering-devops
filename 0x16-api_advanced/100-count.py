@@ -88,18 +88,14 @@ def count_words(subreddit, word_list, histogram={}, n=0, after=None):
             histogram.items()
         )))
         if len(posts) >= limit and data['after']:
-            return count_words(
+            count_words(
                 subreddit,
                 word_list,
                 histogram,
                 n + len(posts),
                 data['after']
             )
-        else:
-            if not histogram:
-                return None
-            return sort_histogram(histogram)
-    else:
-        if not histogram:
-            return None
-        return sort_histogram(histogram)
+        elif histogram:
+            sort_histogram(histogram)
+    elif histogram:
+        sort_histogram(histogram)
