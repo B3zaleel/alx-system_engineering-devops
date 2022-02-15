@@ -13,8 +13,8 @@ BASE_URL = 'https://www.reddit.com'
 def sort_histogram(histogram={}):
     '''Sorts and prints the given histogram.
     '''
-    histogram = dict(filter(lambda x: x[1], histogram.items()))
-    keys_all = map(lambda x: x.lower(),histogram.keys())
+    histogram = dict(filter(lambda kv: kv[1], histogram.items()))
+    keys_all = map(lambda k: k.lower(), histogram.keys())
     histogram_aggregate = dict(map(
         lambda k: (k, histogram[k] * keys_all.count(k)),
         set(keys_all)
@@ -22,7 +22,7 @@ def sort_histogram(histogram={}):
     histogram = histogram_aggregate
     histogram_items = histogram.items()
     histogram_items.sort(
-        key=lambda x: x[0],
+        key=lambda kv: kv[0],
         reverse=False
     )
     histogram_items.sort(
@@ -69,17 +69,16 @@ def count_words(subreddit, word_list, histogram={}, n=0, after=None):
         allow_redirects=False
     )
     if not histogram:
-        histogram = dict(list(map(lambda x: (x, 0), word_list)))
-        print(histogram.items())
+        histogram = dict(list(map(lambda word: (word, 0), word_list)))
     if res.status_code == 200:
         data = res.json()['data']
         posts = data['children']
-        titles = list(map(lambda x: x['data']['title'], posts))
+        titles = list(map(lambda post: post['data']['title'], posts))
         histogram = dict(map(
-            lambda x: x[1] + sum(map(
+            lambda kv: kv[1] + sum(map(
                 lambda txt: len(
                     re.findall(
-                        r'\s{}\s'.format(x[0]),
+                        r'\s{}\s'.format(kv[0]),
                         ' {} '.format(txt.replace(' ', '  ')),
                         re.IGNORECASE
                     )),
