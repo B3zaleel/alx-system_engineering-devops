@@ -3,7 +3,6 @@
 '''
 import re
 import requests
-from collections import OrderedDict
 
 
 BASE_URL = 'https://www.reddit.com'
@@ -36,7 +35,7 @@ def sort_histogram(histogram={}):
             histogram_items
         )
     ))
-    histogram = OrderedDict(histogram_items)
+    histogram = dict(histogram_items)
     if res_str:
         print(res_str)
     return histogram
