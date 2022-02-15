@@ -3,12 +3,41 @@
 '''
 import re
 import requests
-from requests.structures import CaseInsensitiveDict
 
 
 BASE_URL = 'https://www.reddit.com'
 '''Reddit's base API URL.
 '''
+
+
+def sort_histogram(histogram={}):
+    '''Sorts and prints the given histogram.
+    '''
+    histogram = dict(filter(lambda x: x[1], histogram.items()))
+    keys_all = map(lambda x: x.lower(),histogram.keys())
+    histogram_aggregate = dict(map(
+        lambda k: (k, histogram[k] * keys_all.count(k)),
+        set(keys_all)
+    ))
+    histogram = histogram_aggregate
+    histogram_items = histogram.items()
+    histogram_items.sort(
+        key=lambda x: x[0],
+        reverse=False
+    )
+    histogram_items.sort(
+        key=lambda x: x[1],
+        reverse=True
+    )
+    histogram = dict(histogram_items)
+    res_str = '\n'.join(
+        map(
+            lambda x: '{}: {}'.format(x[0], x[1]),
+            histogram.items()
+        )
+    )
+    print(res_str)
+    return histogram
 
 
 def count_words(subreddit, word_list, histogram={}, n=0, after=None):
@@ -39,14 +68,14 @@ def count_words(subreddit, word_list, histogram={}, n=0, after=None):
         headers=api_headers,
         allow_redirects=False
     )
-    dict2 = CaseInsensitiveDict
     if not histogram:
-        histogram = dict2(list(map(lambda x: (x, 0), word_list)))
+        histogram = dict(list(map(lambda x: (x, 0), word_list)))
+        print(histogram.items())
     if res.status_code == 200:
         data = res.json()['data']
         posts = data['children']
         titles = list(map(lambda x: x['data']['title'], posts))
-        histogram = dict2(map(
+        histogram = dict(map(
             lambda x: x[1] + sum(map(
                 lambda txt: len(
                     re.findall(
@@ -68,42 +97,8 @@ def count_words(subreddit, word_list, histogram={}, n=0, after=None):
         else:
             if not histogram:
                 return None
-            histogram_items = histogram.items()
-            histogram_items.sort(
-                key=lambda x: x[0],
-                reverse=False
-            )
-            histogram_items.sort(
-                key=lambda x: x[1],
-                reverse=True
-            )
-            histogram = dict(histogram_items)
-            res_str = '\n'.join(
-                map(
-                    lambda x: '{}: {}'.format(x[0].lower(), x[1]),
-                    histogram.items()
-                )
-            )
-            print(res_str)
-            return histogram
+            return sort_histogram(histogram)
     else:
         if not histogram:
             return None
-        histogram_items = histogram.items()
-        histogram_items.sort(
-            key=lambda x: x[0],
-            reverse=False
-        )
-        histogram_items.sort(
-            key=lambda x: x[1],
-            reverse=True
-        )
-        histogram = dict(histogram_items)
-        res_str = '\n'.join(
-            map(
-                lambda x: '{}: {}'.format(x[0].lower(), x[1]),
-                histogram.items()
-            )
-        )
-        print(res_str)
-        return histogram
+        return sort_histogram(histogram)
