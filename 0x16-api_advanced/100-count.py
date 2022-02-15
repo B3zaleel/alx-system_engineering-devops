@@ -71,7 +71,7 @@ def count_words(subreddit, word_list, histogram={}, n=0, after=None):
             histogram_items = histogram.items()
             histogram_items.sort(
                 key=lambda x: x[0],
-                reverse=True
+                reverse=False
             )
             histogram_items.sort(
                 key=lambda x: x[1],
@@ -92,7 +92,7 @@ def count_words(subreddit, word_list, histogram={}, n=0, after=None):
         histogram_items = histogram.items()
         histogram_items.sort(
             key=lambda x: x[0],
-            reverse=True
+            reverse=False
         )
         histogram_items.sort(
             key=lambda x: x[1],
