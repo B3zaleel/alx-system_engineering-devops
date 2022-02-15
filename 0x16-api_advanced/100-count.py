@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 '''A module containing functions for working with the Reddit API.
 '''
-import requests
 import re
+import requests
 
 
 BASE_URL = 'https://www.reddit.com'
