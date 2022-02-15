@@ -28,8 +28,12 @@ def sort_histogram(histogram={}):
         key=lambda kv: kv[1],
         reverse=True
     )
-    for item in histogram_items:
-        print('{}: {:d}'.format(item[0], item[1]))
+    res_str = '\n'.join(list(map(
+        lambda kv: '{}: {}'.format(kv[0], kv[1]),
+        histogram_items
+    )))
+    if res_str:
+        print(res_str)
 
 
 def count_words(subreddit, word_list, histogram={}, n=0, after=None):
@@ -70,7 +74,7 @@ def count_words(subreddit, word_list, histogram={}, n=0, after=None):
             lambda kv: (kv[0], kv[1] + sum(list(map(
                 lambda txt: len(
                     re.findall(
-                        r'\s{}\s'.format(kv[0]),
+                        r'\s{}\s'.format(re.escape(kv[0])),
                         ' {} '.format(txt.replace(' ', '  ')),
                         re.IGNORECASE
                     )),
