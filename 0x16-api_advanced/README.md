@@ -17,7 +17,7 @@ This project contains more tasks for learning how to consume RESTful APIs.
     + If not a valid subreddit, print None.
     + NOTE: Invalid subreddits may return a redirect to search results. Ensure that you are not following redirects.
 
-+ [ ] 2. Recurse it!<br/>_**[2-recurse.py](2-recurse.py)**_ contains a *recursive Python function* that queries the [Reddit API](https://www.reddit.com/dev/api) and returns a list containing the titles of all hot articles for a given subreddit. If no results are found for the given subreddit, the function should return None.
++ [x] 2. Recurse it!<br/>_**[2-recurse.py](2-recurse.py)**_ contains a *recursive Python function* that queries the [Reddit API](https://www.reddit.com/dev/api) and returns a list containing the titles of all hot articles for a given subreddit. If no results are found for the given subreddit, the function should return None.
   + Hint: The Reddit API uses pagination for separating pages of responses.
   + Requirements:
     + Prototype: `def recurse(subreddit, hot_list=[])`.
