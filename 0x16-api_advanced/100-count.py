@@ -14,10 +14,6 @@ def sort_histogram(histogram={}):
     '''Sorts and prints the given histogram.
     '''
     histogram = dict(list(filter(lambda kv: kv[1], histogram.items())))
-    histogram = dict(list(map(
-        lambda kv: (kv[0].lower(), kv[1]),
-        histogram.items()
-    )))
     keys_all = list(map(lambda k: k.lower(), histogram.keys()))
     histogram_aggregate = dict(list(map(
         lambda k: (k, histogram[k] * keys_all.count(k)),
