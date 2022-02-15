@@ -1,13 +1,19 @@
 #!/usr/bin/python3
 '''A module containing functions for working with the Reddit API.
 '''
-import re
 import requests
 
 
 BASE_URL = 'https://www.reddit.com'
 '''Reddit's base API URL.
 '''
+
+
+def re_findall(word:str, txt: str):
+    '''Finds the number of occurrences of a given word in a text.
+    '''
+    words = txt.lower().split()
+    return words.count(word.lower())
 
 
 def sort_histogram(histogram={}):
@@ -77,12 +83,10 @@ def count_words(subreddit, word_list, histogram={}, n=0, after=None):
         titles = list(map(lambda post: post['data']['title'], posts))
         histogram = dict(list(map(
             lambda kv: (kv[0], kv[1] + sum(list(map(
-                lambda txt: len(
-                    re.findall(
-                        r'\s{}\s'.format(kv[0]),
-                        ' {} '.format(txt.replace(' ', '  ')),
-                        re.IGNORECASE
-                    )),
+                lambda txt: re_findall(
+                    kv[0],
+                    txt,
+                ),
                 titles
             )))),
             histogram.items()
