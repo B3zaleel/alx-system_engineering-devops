@@ -11,7 +11,7 @@ This project contains more tasks for learning how to consume RESTful APIs.
     + If not a valid subreddit, return 0.
     + NOTE: Invalid subreddits may return a redirect to search results. Ensure that you are not following redirects.
 
-+ [ ] 1. Top Ten<br/>_**[1-top_ten.py](1-top_ten.py)**_ contains a Python function queries the [Reddit API](https://www.reddit.com/dev/api) and prints the titles of the first 10 hot posts listed for a given subreddit.
++ [x] 1. Top Ten<br/>_**[1-top_ten.py](1-top_ten.py)**_ contains a Python function queries the [Reddit API](https://www.reddit.com/dev/api) and prints the titles of the first 10 hot posts listed for a given subreddit.
   + Requirements:
     + Prototype: `def top_ten(subreddit)`.
     + If not a valid subreddit, print None.
