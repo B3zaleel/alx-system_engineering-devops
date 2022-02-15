@@ -12,7 +12,8 @@ BASE_URL = 'https://www.reddit.com'
 
 
 def count_words(subreddit, word_list, histogram={}, n=0, after=None):
-    '''
+    '''Counts the number of times each word in a given wordlist
+    occurs in a given subreddit.
     '''
     api_headers = {
         'Accept': 'application/json',
@@ -49,7 +50,7 @@ def count_words(subreddit, word_list, histogram={}, n=0, after=None):
             lambda x: x[1] + sum(map(
                 lambda txt: len(
                     re.findall(
-                        '\s{}\s'.format(x[0]),
+                        r'\s{}\s'.format(x[0]),
                         ' {} '.format(txt.replace(' ', '  ')),
                         re.IGNORECASE
                     )),
