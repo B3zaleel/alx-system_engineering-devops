@@ -19,8 +19,7 @@ def sort_histogram(histogram={}):
         lambda k: (k, histogram[k] * keys_all.count(k)),
         set(keys_all)
     )))
-    histogram = histogram_aggregate
-    histogram_items = list(histogram.items())
+    histogram_items = list(histogram_aggregate.items())
     histogram_items.sort(
         key=lambda kv: kv[0],
         reverse=False
@@ -29,14 +28,8 @@ def sort_histogram(histogram={}):
         key=lambda kv: kv[1],
         reverse=True
     )
-    res_str = '\n'.join(list(map(
-        lambda kv: '{}: {}'.format(kv[0].lower(), kv[1]),
-        histogram_items
-    )))
-    histogram = dict(map(lambda x: (x[0], x[1]), histogram_items))
-    if res_str:
-        print(res_str)
-    return histogram
+    for item in histogram_items:
+        print('{}: {:d}'.format(item[0], item[1]))
 
 
 def count_words(subreddit, word_list, histogram={}, n=0, after=None):
@@ -86,7 +79,7 @@ def count_words(subreddit, word_list, histogram={}, n=0, after=None):
             histogram.items()
         )))
         if len(posts) >= limit and data['after']:
-            return count_words(
+            count_words(
                 subreddit,
                 word_list,
                 histogram,
@@ -95,9 +88,9 @@ def count_words(subreddit, word_list, histogram={}, n=0, after=None):
             )
         else:
             if not histogram:
-                return None
-            return sort_histogram(histogram)
+                return
+            sort_histogram(histogram)
     else:
         if not histogram:
-            return None
-        return sort_histogram(histogram)
+            return
+        sort_histogram(histogram)
