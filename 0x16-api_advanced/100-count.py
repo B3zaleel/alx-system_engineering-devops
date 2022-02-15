@@ -36,7 +36,8 @@ def sort_histogram(histogram={}):
             histogram.items()
         )
     ))
-    print(res_str)
+    if res_str:
+        print(res_str)
     return histogram
 
 
