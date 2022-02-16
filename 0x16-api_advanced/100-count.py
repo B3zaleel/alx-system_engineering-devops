@@ -4,11 +4,6 @@
 import requests
 
 
-BASE_URL = 'https://www.reddit.com'
-'''Reddit's base API URL.
-'''
-
-
 def sort_histogram(histogram={}):
     '''Sorts and prints the given histogram.
     '''
@@ -54,7 +49,7 @@ def count_words(subreddit, word_list, histogram=[], n=0, after=None):
     limit = 30
     res = requests.get(
         '{}/r/{}/.json?sort={}&limit={}&count={}&after={}'.format(
-            BASE_URL,
+            'https://www.reddit.com',
             subreddit,
             sort,
             limit,
