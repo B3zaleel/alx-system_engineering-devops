@@ -73,12 +73,7 @@ def count_words(subreddit, word_list, histogram={}, n=0, after=None):
         titles = list(map(lambda post: post['data']['title'], posts))
         histogram = dict(list(map(
             lambda kv: (kv[0], kv[1] + sum(list(map(
-                lambda txt: len(
-                    re.findall(
-                        r'\s{}\s'.format(re.escape(kv[0])),
-                        ' {} '.format(txt.replace(' ', '  ')),
-                        re.IGNORECASE
-                    )),
+                lambda txt: txt.lower().split().count(kv[0]),
                 titles
             )))),
             list(histogram.items())
@@ -92,8 +87,6 @@ def count_words(subreddit, word_list, histogram={}, n=0, after=None):
                 data['after']
             )
         else:
-            if not histogram:
-                return
             sort_histogram(histogram)
     else:
         return
