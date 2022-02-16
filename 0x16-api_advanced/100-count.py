@@ -4,22 +4,16 @@
 import requests
 
 
-def hist_cumm(item, histogram={}):
-    '''Accummulates the items in the given histogram.
-    '''
-    if item[0] in histogram:
-        histogram[item[0]] += item[1]
-    else:
-        histogram[item[0]] = item[1]
-    return histogram[item[0]]
-
-
 def sort_histogram(histogram={}):
     '''Sorts and prints the given histogram.
     '''
     histogram = list(filter(lambda kv: kv[1], histogram))
     histogram_dict = {}
-    map(lambda item: hist_cumm(item, histogram_dict), histogram)
+    for item in histogram:
+        if item[0] in histogram_dict:
+            histogram_dict[item[0]] += item[1]
+        else:
+            histogram_dict[item[0]] = item[1]
     histogram = list(histogram_dict.items())
     histogram.sort(
         key=lambda kv: kv[0],
