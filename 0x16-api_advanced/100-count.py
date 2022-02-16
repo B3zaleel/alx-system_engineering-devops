@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 '''A module containing functions for working with the Reddit API.
 '''
-import re
 import requests
 
 
@@ -65,9 +64,8 @@ def count_words(subreddit, word_list, histogram={}, n=0, after=None):
         allow_redirects=False
     )
     if not histogram:
-        word_list = list(map(lambda word: word.lower(), word_list))
         histogram = dict(map(lambda word: (word, 0), word_list))
-    if res.status_code == 200:
+    if res.status_code == 200 and not word_list:
         data = res.json()['data']
         posts = data['children']
         titles = list(map(lambda post: post['data']['title'], posts))
