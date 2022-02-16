@@ -80,7 +80,7 @@ def count_words(subreddit, word_list, histogram={}, n=0, after=None):
                     )),
                 titles
             )))),
-            histogram.items()
+            list(histogram.items())
         )))
         if len(posts) >= limit and data['after']:
             count_words(
