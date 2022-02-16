@@ -65,6 +65,7 @@ def count_words(subreddit, word_list, histogram={}, n=0, after=None):
         allow_redirects=False
     )
     if not histogram:
+        word_list = list(map(lambda word: word.lower(), word_list))
         histogram = dict(map(lambda word: (word, 0), word_list))
     if res.status_code == 200:
         data = res.json()['data']
@@ -95,6 +96,4 @@ def count_words(subreddit, word_list, histogram={}, n=0, after=None):
                 return
             sort_histogram(histogram)
     else:
-        if not histogram:
-            return
-        sort_histogram(histogram)
+        return
