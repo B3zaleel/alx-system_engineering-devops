@@ -14,12 +14,12 @@ def sort_histogram(histogram={}):
     '''Sorts and prints the given histogram.
     '''
     histogram = list(filter(lambda kv: kv[1], histogram))
-    histogram_dict = dict(histogram)
-    tmp = list(map(
-        lambda item: (item[0], item[1] + getattr(histogram_dict, item[0], 0)),
-        histogram
-    ))
-    histogram_dict = dict(tmp)
+    histogram_dict = {}
+    for item in histogram:
+        if item[0] in histogram_dict:
+            histogram_dict[item[0]] += item[1]
+        else:
+            histogram_dict[item[0]] = item[1]
     histogram = list(histogram_dict.items())
     histogram.sort(
         key=lambda kv: kv[0],
