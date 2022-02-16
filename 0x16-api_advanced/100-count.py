@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 '''A module containing functions for working with the Reddit API.
 '''
-import re
 import requests
 
 
