@@ -1,7 +1,6 @@
 # Fixes an nginx site that can't handle multiple concurrent requests
 exec { 'fix--for-nginx':
-  command => 'bash -c "sed -iE s/#\s*multi_accept on;/multi_accept on;/ \
-/etc/nginx/nginx.conf; sed -iE s/worker_processes [a-z0-9]*/worker_processes 126/ \
-/etc/nginx/nginx.conf; service nginx restart"',
+  command => 'bash -c "sed -iE s/ULIMIT=.*;/ULIMIT=\"-n 8192\";/ \
+/etc/default/nginx; service nginx restart"',
   path    => '/usr/bin:/usr/sbin:/bin'
 }
