@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 # Gracefully reloads Gunicorn
-service gunicorn restart
+kill -HUP "$(pgrep gunicorn | head -n1)"
