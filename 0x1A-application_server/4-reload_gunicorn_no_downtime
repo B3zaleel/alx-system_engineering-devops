@@ -1,3 +1,4 @@
 #!/usr/bin/env bash
 # Gracefully reloads Gunicorn
-systemctl reload-or-try-restart gunicorn
+MAIN_PID="$(systemctl status gunicorn |  sed -n 's/.*Main PID: \(.*\)$/\1/g p' | cut -d ' ' -f1)"
+kill -HUP "$MAIN_PID"
