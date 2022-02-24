@@ -6,7 +6,6 @@ After=network.target
 User=ubuntu
 Group=www-data
 WorkingDirectory=/home/ubuntu/AirBnB_clone_v4/
-Environment=PATH=/home/ubuntu/.local/bin/
 Environment=HBNB_MYSQL_USER=hbnb_dev
 Environment=HBNB_MYSQL_PWD=hbnb_dev_pwd
 Environment=HBNB_MYSQL_HOST=localhost
